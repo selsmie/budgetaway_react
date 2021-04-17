@@ -12,4 +12,19 @@ const addCountry = (country) =>{
     .then(res => res.json())
 }
 
-export {addCountry}
+const getCountriesWithLanguageAndRegion = (searchLanguage, searchRegion) => {
+    return fetch(dbURL + "?language=" + searchLanguage + "&region=" + searchRegion)
+    .then(res => res.json())
+}
+
+const getCountriesWithLanguage = (searchLanguage) => {
+    return fetch(dbURL + "?language=" + searchLanguage)
+    .then(res => res.json())
+}
+
+const getCountriesWithRegion = (searchRegion) => {
+    return fetch(dbURL + "?region=" + searchRegion)
+    .then(res => res.json())
+}
+
+export {addCountry, getCountriesWithLanguageAndRegion, getCountriesWithLanguage, getCountriesWithRegion}

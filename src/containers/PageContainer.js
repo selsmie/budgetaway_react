@@ -2,18 +2,17 @@ import { useState, useEffect } from 'react'
 import HeaderAndCountryFilter from '../components/HeaderAndCountryFilter'
 import CountryContainer from './CountryContainer'
 import {BrowserRouter as Router, Route, Switch} from "react-router-dom"
-import {addCountry} from "../services/DataServices"
-
+import {addCountry, getCountriesWithLanguageAndRegion, getCountriesWithLanguage, getCountriesWithRegion} from "../services/DataServices"
 
 const PageContainer = () => {
    
     const [allCountries, setAllCountries] = useState([]);
     // const [allLanguages, setAllLanguages] = useState([]);
     // const [allRegions, setAllRegions] = useState([]);
-    // const [allFilteredCountries, setAllFilteredCountries] = useState([]);
+    const [allFilteredCountries, setAllFilteredCountries] = useState([]);
     // const [allFilteredFlights, setAllFilteredFlights] = useState([]);
-    // const [selectedLanguage, setSelectedLanguage] = useState("");
-    // const [selectedRegion, setSelectedRegion] = useState("");
+    const [selectedLanguage, setSelectedLanguage] = useState("");
+    const [selectedRegion, setSelectedRegion] = useState("");
     // const [selectedCountryId, setSelectedCountryId] = useState("");
     // const [selectedCountry, setSelectedCountry] = useState("");
     // const [departureAirport, setDepartureAirport] = useState("");
@@ -47,6 +46,18 @@ const PageContainer = () => {
     useEffect(() => {
         allCountries.map((country) => addCountry(country))
     }, [allCountries])
+
+    useEffect(() => {
+        if (selectedLanguage && selectedRegion) {
+            setAllFilteredCountries(getCountriesWithLanguageAndRegion(selectedLanguage, selectedRegion))
+        }
+        else if (selectedLanguage && !selectedRegion){
+            setAllFilteredCountries(getCountriesWithLanguage(selectedLanguage))
+        } 
+        else if (!selectedLanguage && selectedRegion) {
+            setAllFilteredCountries(getCountriesWithRegion(selectedRegion))
+        }
+    }, [selectedLanguage, selectedRegion])
 
     return (
         <Router>
