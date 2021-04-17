@@ -1,11 +1,12 @@
 import CountryList from '../components/CountryList'
 import SelectedCountryDetail from '../components/SelectedCountryDetail'
 
-const CountryContainer = () => {
+const CountryContainer = ({countries}) => {
+    
     return (
         <div>
             <p>countrycontainer</p>
-            <CountryList />
+            <CountryList countries={countries}/>
             <SelectedCountryDetail />
         </div>
     )
