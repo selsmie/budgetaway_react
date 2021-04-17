@@ -2,13 +2,13 @@ import { useState, useEffect } from 'react'
 import HeaderAndCountryFilter from '../components/HeaderAndCountryFilter'
 import CountryContainer from './CountryContainer'
 import {BrowserRouter as Router, Route, Switch} from "react-router-dom"
-import {addCountry, getCountriesWithLanguageAndRegion, getCountriesWithLanguage, getCountriesWithRegion} from "../services/DataServices"
+import {addCountry, getCountriesWithLanguageAndRegion, getCountriesWithLanguage, getCountriesWithRegion, getAllLanguages, getAllRegions} from "../services/DataServices"
 
 const PageContainer = () => {
    
     const [allCountries, setAllCountries] = useState([]);
-    // const [allLanguages, setAllLanguages] = useState([]);
-    // const [allRegions, setAllRegions] = useState([]);
+    const [allLanguages, setAllLanguages] = useState([]);
+    const [allRegions, setAllRegions] = useState([]);
     const [allFilteredCountries, setAllFilteredCountries] = useState([]);
     // const [allFilteredFlights, setAllFilteredFlights] = useState([]);
     const [selectedLanguage, setSelectedLanguage] = useState("");
@@ -42,11 +42,16 @@ const PageContainer = () => {
             }))
         })
     }, [])
-
+    
+    //iterate through all countries and save each country to the db
+    // also populate allLanguages and allRegions
     useEffect(() => {
         allCountries.map((country) => addCountry(country))
+        setAllLanguages(getAllLanguages())
+        setAllRegions(getAllRegions())
     }, [allCountries])
 
+    //get filtered countries list depending on which filter is used
     useEffect(() => {
         if (selectedLanguage && selectedRegion) {
             setAllFilteredCountries(getCountriesWithLanguageAndRegion(selectedLanguage, selectedRegion))
@@ -56,6 +61,8 @@ const PageContainer = () => {
         } 
         else if (!selectedLanguage && selectedRegion) {
             setAllFilteredCountries(getCountriesWithRegion(selectedRegion))
+        } else {
+            setAllFilteredCountries(allCountries)
         }
     }, [selectedLanguage, selectedRegion])
 
