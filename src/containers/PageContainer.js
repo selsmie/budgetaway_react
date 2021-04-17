@@ -1,7 +1,8 @@
 import { useState, useEffect } from 'react'
-import {BrowserRouter as Router, Route, Switch} from "react-router-dom"
 import HeaderAndCountryFilter from '../components/HeaderAndCountryFilter'
 import CountryContainer from './CountryContainer'
+import {BrowserRouter as Router, Route, Switch} from "react-router-dom"
+
 
 const PageContainer = () => {
    
@@ -43,11 +44,22 @@ const PageContainer = () => {
     }, [])
 
     return (
-        <>
-            <p>pagecontainer</p>
-            <HeaderAndCountryFilter />
-            <CountryContainer />
-        </>
+        // <>
+        //     <p>pagecontainer</p>
+        //     <HeaderAndCountryFilter />
+        //     <CountryContainer />
+        // </>
+
+        <Router>
+            <>
+                <HeaderAndCountryFilter/>
+                <Switch>
+                    <Route exact path="/" component={CountryContainer}/>
+                    {/* <Route path="/wishlist" component={WishlistContainer}/> */}
+                    {/* <Router path="/about" component={About}/> */}
+                </Switch>
+            </>
+        </Router>
     )
 
 
