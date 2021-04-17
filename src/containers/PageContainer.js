@@ -6,16 +6,16 @@ import CountryContainer from './CountryContainer'
 const PageContainer = () => {
    
     const [allCountries, setAllCountries] = useState([]);
-    // const [allLanguages, setAllLanguages] = useState([]);
-    // const [allRegions, setAllRegions] = useState([]);
-    // const [allFilteredCountries, setAllFilteredCountries] = useState([]);
-    // const [allFilteredFlights, setAllFilteredFlights] = useState([]);
-    // const [selectedLanguage, setSelectedLanguage] = useState("");
-    // const [selectedRegion, setSelectedRegion] = useState("");
-    // const [selectedCountryId, setSelectedCountryId] = useState("");
-    // const [selectedCountry, setSelectedCountry] = useState("");
-    // const [departureAirport, setDepartureAirport] = useState("");
-    // const [selectedFlight, setSelectedFlight] = useState("");
+    const [allLanguages, setAllLanguages] = useState([]);
+    const [allRegions, setAllRegions] = useState([]);
+    const [allFilteredCountries, setAllFilteredCountries] = useState([]);
+    const [allFilteredFlights, setAllFilteredFlights] = useState([]);
+    const [selectedLanguage, setSelectedLanguage] = useState("");
+    const [selectedRegion, setSelectedRegion] = useState("");
+    const [selectedCountryId, setSelectedCountryId] = useState("");
+    const [selectedCountry, setSelectedCountry] = useState("");
+    const [departureAirport, setDepartureAirport] = useState("");
+    const [selectedFlight, setSelectedFlight] = useState("");
 
     const filterEntryArray = (array) => {
         let newArray = []
