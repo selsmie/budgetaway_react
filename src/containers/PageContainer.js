@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react'
 import HeaderAndCountryFilter from '../components/HeaderAndCountryFilter'
 import CountryContainer from './CountryContainer'
 import {BrowserRouter as Router, Route, Switch} from "react-router-dom"
+import {addCountry} from "../services/DataServices"
 
 
 const PageContainer = () => {
@@ -43,13 +44,11 @@ const PageContainer = () => {
         })
     }, [])
 
-    return (
-        // <>
-        //     <p>pagecontainer</p>
-        //     <HeaderAndCountryFilter />
-        //     <CountryContainer />
-        // </>
+    useEffect(() => {
+        allCountries.map((country) => addCountry(country))
+    }, [allCountries])
 
+    return (
         <Router>
             <>
                 <HeaderAndCountryFilter/>

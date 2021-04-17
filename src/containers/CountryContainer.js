@@ -4,7 +4,7 @@ import SelectedCountryDetail from '../components/SelectedCountryDetail'
 const CountryContainer = () => {
     return (
         <div>
-            <p>peepee countrycontainer</p>
+            <p>countrycontainer</p>
             <CountryList />
             <SelectedCountryDetail />
         </div>
