@@ -1,0 +1,48 @@
+.title {
+    text-align: center;
+    font-size: 40px;
+    margin: 5px;
+}
+
+.title-links {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    align-items: center;
+    justify-items: center;
+    margin: 20px 40px;
+    padding: 0px;
+}
+
+.search-bar {
+    display: grid;
+    grid-template-columns: 1fr 1fr 2fr;
+    justify-items: center;
+}
+
+#bud {
+    color: blue;
+}
+
+#getaway {
+    color: red;
+}
+
+.navbar {
+    justify-self: right;
+}
+
+.navbar > a {
+    margin: 0px 10px;
+    text-decoration: none;
+}
+
+.budget {
+    justify-self: left;
+}
+
+.budget > a {
+    text-decoration: none;
+}
+
+
+
