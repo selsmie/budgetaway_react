@@ -2,36 +2,23 @@ import FlightsFilterAndButton from './FlightsFilterAndButton'
 // import Currency from './Currency'
 // import Language from './Language'
 
-const SelectedCountryDetail = ({selectedCountry}) => {
 
-    // const displayCurrencies =
-    //     selectedCountry.currencies.map((currency, index) => {
-    //         return <Currency key={index} currency={currency}/>
-    //     })
+const SelectedCountryDetail = ({selectedCountry, onSearchSubmit}) => {
 
-    
-
-    // const displayLanguages = 
-    //     selectedCountry.languages.map((language, index) => {
-    //         return <Language key={index} language={language}/>
-    //     })
-
-
-    const displayable = (selectedCountry) ? 
+    const displayableDetails = (selectedCountry) ? 
     <div>
     <p>{selectedCountry.country_name}</p>
     <img src={selectedCountry.flag} alt="flag"/>
     <p>Region: {selectedCountry.region}</p>
-    {/* {displayCurrencies}
-    {displayLanguages} */}
-    <p>{selectedCountry.languages}</p>
-    <p>{selectedCountry.currencies}</p>
-    <FlightsFilterAndButton />
+    <p>Currencies: {selectedCountry.currencies[0]}</p>
+    <p>Languages: {selectedCountry.languages}</p>
+    <FlightsFilterAndButton selectedCountry={selectedCountry} onSearchSubmit={onSearchSubmit}/>
     </div> : null
+
 
     return (
         <div>
-            {displayable}
+            {displayableDetails}
         </div>
     )
 }

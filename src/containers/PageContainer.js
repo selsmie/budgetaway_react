@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react'
 // import HeaderAndCountryFilter from '../components/HeaderAndCountryFilter'
 import CountryContainer from './CountryContainer'
 // import {BrowserRouter as Router, Route, Switch} from "react-router-dom"
-import {addCountries, getCountriesWithLanguageAndRegion, getCountriesWithLanguage, getCountriesWithRegion, getAllLanguages, getAllRegions} from "../services/DataServices"
+// import {addCountries, getCountriesWithLanguageAndRegion, getCountriesWithLanguage, getCountriesWithRegion, getAllLanguages, getAllRegions} from "../services/DataServices"
 
 const PageContainer = () => {
    
@@ -15,7 +15,7 @@ const PageContainer = () => {
     // const [selectedRegion, setSelectedRegion] = useState("");
     const [selectedCountryId, setSelectedCountryId] = useState("");
     const [selectedCountry, setSelectedCountry] = useState("");
-    // const [departureAirport, setDepartureAirport] = useState("");
+    const [departureAirport, setDepartureAirport] = useState("");
     // const [selectedFlight, setSelectedFlight] = useState("");
 
     const filterEntryArray = (array) => {
@@ -37,7 +37,7 @@ const PageContainer = () => {
                     region: (entry.subregion) ? entry.subregion : entry.region,
                     currencies: filterEntryArray(entry.currencies),
                     languages: filterEntryArray(entry.languages),
-                    airports: []
+                    airports: ["airport"]
                 }
             }))
         })
@@ -45,11 +45,11 @@ const PageContainer = () => {
     
     // iterate through all countries and save each country to the db
     // also populate allLanguages and allRegions
-    useEffect(() => {
-        addCountries(allCountries)
+    // useEffect(() => {
+    //     addCountries(allCountries)
         // setAllLanguages(getAllLanguages())
         // setAllRegions(getAllRegions())
-    }, [allCountries])
+    // }, [allCountries])
 
     //get filtered countries list depending on which filter is used
     useEffect(() => {
@@ -83,6 +83,10 @@ const PageContainer = () => {
         getSelectedCountry()
     })
 
+    const searchFlights = (departureAirport) => {
+        setDepartureAirport(departureAirport)
+    }
+
     return (
         // <Router>
         //     <>
@@ -97,7 +101,7 @@ const PageContainer = () => {
         //     </>
         // </Router>
 
-        <CountryContainer countries={allFilteredCountries} selectedCountry={selectedCountry} onCountrySelect={selectCountry}/>
+        <CountryContainer countries={allFilteredCountries} selectedCountry={selectedCountry} onCountrySelect={selectCountry} onSearchSubmit={searchFlights}/>
     )
 
 

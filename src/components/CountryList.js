@@ -11,6 +11,7 @@ const CountryList = ({countries, onCountrySelect}) => {
     return (
         <form>
             <select name="countries-list" id="countries-list" onChange={handleSelect}>
+                <option value="disabled">Select a Country</option>
                 {countryDisplay}
             </select>
         </form>
