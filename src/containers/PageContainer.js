@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-// import HeaderAndCountryFilter from '../components/HeaderAndCountryFilter'
+import HeaderAndCountryFilter from '../components/HeaderAndCountryFilter'
 import CountryContainer from './CountryContainer'
 // import {BrowserRouter as Router, Route, Switch} from "react-router-dom"
 // import {addCountries, getCountriesWithLanguageAndRegion, getCountriesWithLanguage, getCountriesWithRegion, getAllLanguages, getAllRegions} from "../services/DataServices"
@@ -90,7 +90,7 @@ const PageContainer = () => {
     return (
         // <Router>
         //     <>
-        //         <HeaderAndCountryFilter/>
+        //         <HeaderAndCountryFilter countries={allFilteredCountries} selectedCountry={selectedCountry} onCountrySelect={selectCountry}/>
         //         <Switch>
         //             <Route exact path="/">
         //                 <CountryContainer countries={allFilteredCountries} selectedCountry={selectedCountry} onCountrySelect={selectCountry}/>
@@ -100,8 +100,10 @@ const PageContainer = () => {
         //         </Switch>
         //     </>
         // </Router>
-
-        <CountryContainer countries={allFilteredCountries} selectedCountry={selectedCountry} onCountrySelect={selectCountry} onSearchSubmit={searchFlights}/>
+        <>
+        <HeaderAndCountryFilter countries={allFilteredCountries} selectedCountry={selectedCountry} onCountrySelect={selectCountry}/>
+        <CountryContainer selectedCountry={selectedCountry} onSearchSubmit={searchFlights}/>
+        </>
     )
 
 

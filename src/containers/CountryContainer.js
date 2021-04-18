@@ -1,12 +1,12 @@
-import CountryList from '../components/CountryList'
+// import CountryList from '../components/CountryList'
 import SelectedCountryDetail from '../components/SelectedCountryDetail'
 
-const CountryContainer = ({countries, selectedCountry, onCountrySelect, onSearchSubmit}) => {
+const CountryContainer = ({selectedCountry, onSearchSubmit}) => {
     
     return (
         <div>
             <p>countrycontainer</p>
-            <CountryList countries={countries} onCountrySelect={onCountrySelect}/>
+            {/* <CountryList countries={countries} onCountrySelect={onCountrySelect}/> */}
             <SelectedCountryDetail selectedCountry={selectedCountry} onSearchSubmit={onSearchSubmit}/>
         </div>
     )

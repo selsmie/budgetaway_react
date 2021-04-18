@@ -1,9 +1,10 @@
+import CountryList from './CountryList'
 
-
-const HeaderAndCountryFilter = () => {
+const HeaderAndCountryFilter = ({countries, onCountrySelect}) => {
     return (
         <>
-            <p>headercountryfilter</p>            
+            <p>headercountryfilter</p>    
+            <CountryList countries={countries} onCountrySelect={onCountrySelect}/>        
         </>
     )
 }
