@@ -1,8 +1,8 @@
-const dbURL = 'http://localhost:8080/api/countries';
+const countryURL = 'http://localhost:8080/countries';
 
 
 const addCountry = (country) =>{
-    return fetch(dbURL, {
+    return fetch(countryURL, {
         method: 'POST',
         body: JSON.stringify(country),
         headers: {
@@ -13,27 +13,27 @@ const addCountry = (country) =>{
 }
 
 const getCountriesWithLanguageAndRegion = (searchLanguage, searchRegion) => {
-    return fetch(dbURL + "?language=" + searchLanguage + "&region=" + searchRegion)
+    return fetch(countryURL + "?language=" + searchLanguage + "&region=" + searchRegion)
     .then(res => res.json())
 }
 
 const getCountriesWithLanguage = (searchLanguage) => {
-    return fetch(dbURL + "?language=" + searchLanguage)
+    return fetch(countryURL + "?language=" + searchLanguage)
     .then(res => res.json())
 }
 
 const getCountriesWithRegion = (searchRegion) => {
-    return fetch(dbURL + "?region=" + searchRegion)
+    return fetch(countryURL + "?region=" + searchRegion)
     .then(res => res.json())
 }
 
 const getAllLanguages = () => {
-    return fetch(dbURL + "?languages=true")
+    return fetch(countryURL + "?languages=true")
     .then(res => res.json())
 }
 
 const getAllRegions = () => {
-    return fetch(dbURL + "?regions=true")
+    return fetch(countryURL + "?regions=true")
     .then(res => res.json())
 }
 

@@ -1,7 +1,7 @@
 const CountryList = ({countries}) => {
 
     const countryDisplay = countries.map((country, index) => {
-        return <option value="{country}" key="index">{country.country_name}</option>
+        return <option value="{country}" key={index}>{country.country_name}</option>
     })
 
     return (

@@ -67,19 +67,18 @@ const PageContainer = () => {
     }, [selectedLanguage, selectedRegion, allCountries])
 
     return (
-    //     <Router>
-    //         <>
-    //             <HeaderAndCountryFilter/>
-    //             <Switch>
-    //                 <Route exact path="/">
-    //                     <CountryContainer countries={allFilteredCountries}/>
-    //                 </Route>
-    //                 {/* <Route path="/wishlist" component={WishlistContainer}/> */}
-    //                 {/* <Router path="/about" component={About}/> */}
-    //             </Switch>
-    //         </>
-    //     </Router>
-    <CountryContainer countries={allFilteredCountries}/>
+        <Router>
+            <>
+                <HeaderAndCountryFilter/>
+                <Switch>
+                    <Route exact path="/">
+                        <CountryContainer countries={allFilteredCountries}/>
+                    </Route>
+                    {/* <Route path="/wishlist" component={WishlistContainer}/> */}
+                    {/* <Router path="/about" component={About}/> */}
+                </Switch>
+            </>
+        </Router>
     )
 
 
