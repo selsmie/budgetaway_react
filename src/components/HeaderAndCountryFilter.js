@@ -16,15 +16,15 @@ const HeaderAndCountryFilter = ({countries, onCountrySelect}) => {
                 </div>
             </div>
 
-            <form className="search-bar">
-                <select name="lanugages" id="languages">
-                    <option value="disabled">Select Language</option>
-                </select>
-                <select name="regions" id="regions">
-                    <option value="disabled">Select Region</option>
-                </select>
+            <div className="search-bar">
+                    <select name="lanugages" id="languages">
+                        <option value="disabled">Select Language</option>
+                    </select>
+                    <select name="regions" id="regions">
+                        <option value="disabled">Select Region</option>
+                    </select>
                 <CountryList countries={countries} onCountrySelect={onCountrySelect}/> 
-            </form>     
+            </div>    
         </header>
     )
 }
