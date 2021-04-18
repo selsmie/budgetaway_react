@@ -1,8 +1,8 @@
 import { useState, useEffect } from 'react'
-import HeaderAndCountryFilter from '../components/HeaderAndCountryFilter'
+// import HeaderAndCountryFilter from '../components/HeaderAndCountryFilter'
 import CountryContainer from './CountryContainer'
-import {BrowserRouter as Router, Route, Switch} from "react-router-dom"
-// import {addCountry, getCountriesWithLanguageAndRegion, getCountriesWithLanguage, getCountriesWithRegion, getAllLanguages, getAllRegions} from "../services/DataServices"
+// import {BrowserRouter as Router, Route, Switch} from "react-router-dom"
+import {addCountries, getCountriesWithLanguageAndRegion, getCountriesWithLanguage, getCountriesWithRegion, getAllLanguages, getAllRegions} from "../services/DataServices"
 
 const PageContainer = () => {
    
@@ -11,10 +11,10 @@ const PageContainer = () => {
     // const [allRegions, setAllRegions] = useState([]);
     const [allFilteredCountries, setAllFilteredCountries] = useState([]);
     // const [allFilteredFlights, setAllFilteredFlights] = useState([]);
-    const [selectedLanguage, setSelectedLanguage] = useState("");
-    const [selectedRegion, setSelectedRegion] = useState("");
-    // const [selectedCountryId, setSelectedCountryId] = useState("");
-    // const [selectedCountry, setSelectedCountry] = useState("");
+    // const [selectedLanguage, setSelectedLanguage] = useState("");
+    // const [selectedRegion, setSelectedRegion] = useState("");
+    const [selectedCountryId, setSelectedCountryId] = useState("");
+    const [selectedCountry, setSelectedCountry] = useState("");
     // const [departureAirport, setDepartureAirport] = useState("");
     // const [selectedFlight, setSelectedFlight] = useState("");
 
@@ -43,13 +43,13 @@ const PageContainer = () => {
         })
     }, [])
     
-    //iterate through all countries and save each country to the db
+    // iterate through all countries and save each country to the db
     // also populate allLanguages and allRegions
-    // useEffect(() => {
-    //     allCountries.map((country) => addCountry(country))
-    //     setAllLanguages(getAllLanguages())
-    //     setAllRegions(getAllRegions())
-    // }, [allCountries])
+    useEffect(() => {
+        addCountries(allCountries)
+        // setAllLanguages(getAllLanguages())
+        // setAllRegions(getAllRegions())
+    }, [allCountries])
 
     //get filtered countries list depending on which filter is used
     useEffect(() => {
@@ -64,21 +64,40 @@ const PageContainer = () => {
     //     } else {
             setAllFilteredCountries(allCountries)
     //     }
-    }, [selectedLanguage, selectedRegion, allCountries])
+    // }, [selectedLanguage, selectedRegion, allCountries])
+    }, [allCountries])
+
+    const findCountry = (searchCountry, collection) => {
+        return collection.find(({country_name}) => country_name === searchCountry)
+    }
+
+    const getSelectedCountry = () => {
+        setSelectedCountry(findCountry(selectedCountryId, allCountries))
+    }
+
+    const selectCountry = submitted => {
+        setSelectedCountryId(submitted)
+    }
+
+    useEffect(() => {
+        getSelectedCountry()
+    })
 
     return (
-        <Router>
-            <>
-                <HeaderAndCountryFilter/>
-                <Switch>
-                    <Route exact path="/">
-                        <CountryContainer countries={allFilteredCountries}/>
-                    </Route>
-                    {/* <Route path="/wishlist" component={WishlistContainer}/> */}
-                    {/* <Router path="/about" component={About}/> */}
-                </Switch>
-            </>
-        </Router>
+        // <Router>
+        //     <>
+        //         <HeaderAndCountryFilter/>
+        //         <Switch>
+        //             <Route exact path="/">
+        //                 <CountryContainer countries={allFilteredCountries} selectedCountry={selectedCountry} onCountrySelect={selectCountry}/>
+        //             </Route>
+        //             {/* <Route path="/wishlist" component={WishlistContainer}/> */}
+        //             {/* <Router path="/about" component={About}/> */}
+        //         </Switch>
+        //     </>
+        // </Router>
+
+        <CountryContainer countries={allFilteredCountries} selectedCountry={selectedCountry} onCountrySelect={selectCountry}/>
     )
 
 

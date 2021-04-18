@@ -1,13 +1,19 @@
-const CountryList = ({countries}) => {
+const CountryList = ({countries, onCountrySelect}) => {
 
     const countryDisplay = countries.map((country, index) => {
-        return <option value="{country}" key={index}>{country.country_name}</option>
+        return <option value={country.country_name} key={index}>{country.country_name}</option>
     })
 
+    const handleSelect = (evt) => {
+        onCountrySelect(evt.target.value)
+    }
+
     return (
-        <select name="countries-list" id="countries-list">
-            {countryDisplay}
-        </select>
+        <form>
+            <select name="countries-list" id="countries-list" onChange={handleSelect}>
+                {countryDisplay}
+            </select>
+        </form>
     )
 }
 
