@@ -1,9 +1,6 @@
 import FlightsFilterAndButton from './FlightsFilterAndButton'
 import CountryMap from './CountryMap'
 import "./SelectedCountryDetails.css"
-// import Currency from './Currency'
-// import Language from './Language'
-
 
 const SelectedCountryDetail = ({selectedCountry, onSearchSubmit}) => {
 
@@ -14,8 +11,8 @@ const SelectedCountryDetail = ({selectedCountry, onSearchSubmit}) => {
     
     <div className="details" >
         <p id="region">Region: {selectedCountry.region}</p>
-        <p id="listable">Currencies: {selectedCountry.currencies[0]}</p>
-        <p id="listable">Languages: {selectedCountry.languages}</p>
+        <p id="listable">Currencies: {selectedCountry.currencies.join(", ")}</p>
+        <p id="listable">Languages: {selectedCountry.languages.join(", ")}</p>
     </div>
     <FlightsFilterAndButton selectedCountry={selectedCountry} onSearchSubmit={onSearchSubmit} id="buttons"/>
     <CountryMap selectedCoordinates={selectedCountry.coordinates} id="map"/>

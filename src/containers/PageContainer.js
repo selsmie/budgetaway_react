@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react'
 import HeaderAndCountryFilter from '../components/HeaderAndCountryFilter'
 import CountryContainer from './CountryContainer'
 // import {BrowserRouter as Router, Route, Switch} from "react-router-dom"
-// import {addCountries, getCountriesWithLanguageAndRegion, getCountriesWithLanguage, getCountriesWithRegion, getAllLanguages, getAllRegions} from "../services/DataServices"
+import {addCountries, getCountriesWithLanguageAndRegion, getCountriesWithLanguage, getCountriesWithRegion, getAllLanguages, getAllRegions} from "../services/DataServices"
 
 const PageContainer = () => {
    
@@ -45,11 +45,11 @@ const PageContainer = () => {
     
     // iterate through all countries and save each country to the db
     // also populate allLanguages and allRegions
-    // useEffect(() => {
-    //     addCountries(allCountries)
+    useEffect(() => {
+        // addCountries(allCountries)
         // setAllLanguages(getAllLanguages())
         // setAllRegions(getAllRegions())
-    // }, [allCountries])
+    }, [allCountries])
 
     //get filtered countries list depending on which filter is used
     useEffect(() => {
