@@ -17,7 +17,9 @@ const SelectedCountryDetail = ({selectedCountry, onSearchSubmit}) => {
             return "$$$$"    
         } else if (selectedCountry.region.match("Northern America")){
             return "$$$$$"
-        } else if (selectedCountry.region.match("Southern America")){
+        } else if (selectedCountry.region.match("South America")){
+            return "$$$"
+        } else if (selectedCountry.region.match("Central America")){
             return "$$$"
         } else if (selectedCountry.region.match("Africa")){
             return "$$"
@@ -41,8 +43,8 @@ const SelectedCountryDetail = ({selectedCountry, onSearchSubmit}) => {
             
             <p id="afford">Affordability: {affordability()}</p>
             <p id="region">Region: {selectedCountry.region}</p>
-            <p class="listable">Currencies: {selectedCountry.currencies.join(", ")}</p>
-            <p class="listable">Languages: {selectedCountry.languages.join(", ")}</p>
+            <p className="listable">Currencies: {selectedCountry.currencies.join(", ")}</p>
+            <p className="listable">Languages: {selectedCountry.languages.join(", ")}</p>
             <div id="buttons">
                 <FlightsFilterAndButton selectedCountry={selectedCountry} onSearchSubmit={onSearchSubmit} />
             </div>

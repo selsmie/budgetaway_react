@@ -1,18 +1,24 @@
 import CountryList from './CountryList'
+import NavBar from "./NavBar"
 import './HeaderAndCountryFilter.css'
+import logo from "../logo.png"
+import BudgetNav from "./BudgetNav"
 
 const HeaderAndCountryFilter = ({countries, onCountrySelect}) => {
+
+    const budgetClick = () => {
+
+    }
+{/* <p onClick={budgetClick}>Budgeting</p> */}
     return (
         <header>
             <div className="title-links">
                 <div className="budget">
-                    <a href="/">Budgeting</a>
+                    <BudgetNav/>
                 </div>
-                <h2 id="bud" className="title">Bud<span id="getaway" className="title">getAway</span></h2>
+                <img src={logo} alt="logo"/>
                 <div className="navbar">
-                    <a href="/">Home</a>
-                    <a href="/">Wishlist</a>
-                    <a href="/">About</a>
+                    <NavBar/>
                 </div>
             </div>
 

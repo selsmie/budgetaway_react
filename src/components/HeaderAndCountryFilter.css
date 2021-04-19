@@ -19,21 +19,20 @@
     justify-items: center;
 }
 
-#bud {
-    color: blue;
-}
 
-#getaway {
-    color: red;
-}
-
-.navbar {
+.navbar > NarBar {
     justify-self: right;
 }
 
-.navbar > a {
+.navbar > ul > li > a {
     margin: 0px 10px;
     text-decoration: none;
+}
+
+.navbar > ul {
+    list-style-type: none;
+    display: flex;
+    justify-content: space-between;
 }
 
 .budget {
