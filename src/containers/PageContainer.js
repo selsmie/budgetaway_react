@@ -2,10 +2,13 @@ import { useState, useEffect } from 'react'
 import HeaderAndCountryFilter from '../components/HeaderAndCountryFilter'
 import CountryContainer from './CountryContainer'
 // import {BrowserRouter as Router, Route, Switch} from "react-router-dom"
-import {addCountries, getCountriesWithLanguageAndRegion, getCountriesWithLanguage, getCountriesWithRegion, getAllLanguages, getAllRegions} from "../services/DataServices"
+// import {addCountries, getCountriesWithLanguageAndRegion, getCountriesWithLanguage, getCountriesWithRegion, getAllLanguages, getAllRegions} from "../services/DataServices"
+// import {flight_key} from "../config"
 
 const PageContainer = () => {
    
+    const [rawCountries, setRawCountries] = useState([]);
+    const [rawAirports, setRawAirports] = useState([]);
     const [allCountries, setAllCountries] = useState([]);
     // const [allLanguages, setAllLanguages] = useState([]);
     // const [allRegions, setAllRegions] = useState([]);
@@ -30,18 +33,47 @@ const PageContainer = () => {
         fetch("https://restcountries.eu/rest/v2/all")
         .then(res => res.json())
         .then((data) => {
-            setAllCountries(data.map((entry) => {
+            setRawCountries(data.map((entry) => {
                 return {country_name: entry.name, 
                     flag: entry.flag, 
                     coordinates: entry.latlng, 
                     region: (entry.subregion) ? entry.subregion : entry.region,
                     currencies: filterEntryArray(entry.currencies),
                     languages: filterEntryArray(entry.languages),
-                    airports: ["airport"]
+                    airports: []
                 }
             }))
         })
     }, [])
+
+    // useEffect(() => {
+        
+    //     for(let i = 0; i < 1; i++) {
+    //         fetch(`http://api.aviationstack.com/v1/airports?access_key=${flight_key}`)
+    //         .then(res => res.json())
+    //         // .then(data => setRawAirports(data.data))
+    //         .then(data => {
+    //             setRawAirports(data.data.map((airport) => {
+    //                 return {
+    //                     airport: airport.airport_name,
+    //                     country: airport.country_name
+    //                 }
+    //             }))
+    //         })
+    //     }
+        
+    // }, [rawCountries])
+
+
+    // useEffect(() => {
+    //     const countries = [...rawCountries]
+    //     rawAirports.map((airport) => {
+    //         const index = countries.indexOf((country) => country.country_name === airport.country)
+    //         countries[index].airports.push(airport.name)
+    //     })
+    //     setRawCountries(countries)
+    // }, [rawAirports, rawCountries])
+
     
     // iterate through all countries and save each country to the db
     // also populate allLanguages and allRegions
