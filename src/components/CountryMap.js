@@ -1,4 +1,4 @@
-import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet'
+import { MapContainer, TileLayer, Marker } from 'react-leaflet'
 import "./CountryMap.css"
 
 const CountryMap = ({selectedCoordinates}) => {
@@ -11,9 +11,6 @@ const CountryMap = ({selectedCoordinates}) => {
                 url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
             />
             <Marker position={selectedCoordinates}>
-                <Popup>
-                A pretty CSS3 popup. <br /> Easily customizable.
-                </Popup>
             </Marker>
         </MapContainer>
     )

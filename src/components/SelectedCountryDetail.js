@@ -9,13 +9,16 @@ const SelectedCountryDetail = ({selectedCountry, onSearchSubmit}) => {
 
     const displayableDetails = (selectedCountry) ? 
     <div className="country-details">
-    <p>{selectedCountry.country_name}</p>
+    <h2 id="country-name">{selectedCountry.country_name}</h2>
     <img src={selectedCountry.flag} alt="flag" id="flag"/>
-    <p>Region: {selectedCountry.region}</p>
-    <p>Currencies: {selectedCountry.currencies[0]}</p>
-    <p>Languages: {selectedCountry.languages}</p>
-    <FlightsFilterAndButton selectedCountry={selectedCountry} onSearchSubmit={onSearchSubmit}/>
-    <CountryMap selectedCoordinates={selectedCountry.coordinates}/>
+    
+    <div class="details" >
+        <p id="region">Region: {selectedCountry.region}</p>
+        <p id="listable">Currencies: {selectedCountry.currencies[0]}</p>
+        <p id="listable">Languages: {selectedCountry.languages}</p>
+    </div>
+    <FlightsFilterAndButton selectedCountry={selectedCountry} onSearchSubmit={onSearchSubmit} id="buttons"/>
+    <CountryMap selectedCoordinates={selectedCountry.coordinates} id="map"/>
     </div> : null
 
 

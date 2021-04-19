@@ -1,4 +1,34 @@
-#flag {
-    height: 300px;
-    width: auto;
+.country-details {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-areas: 
+    "name region listable"
+    "flag buttons map";
 }
+
+#flag {
+    height: 200px;
+    width: auto;
+    grid-area: flag;
+}
+
+#country-name{
+    grid-area: name;
+}
+
+#listable {
+    grid-area: listable;
+}
+
+#map {
+    grid-area: map;
+}
+
+#region {
+    grid-area: region;
+}
+
+#id {
+    grid-area: buttons;
+}
+
