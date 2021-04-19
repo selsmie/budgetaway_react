@@ -1,12 +1,16 @@
-// const Budget = () => {
-//     <div>Budgeting area</div>
-// }
+import "./Budget.css"
 
-// export default Budget
+const Budget = () => (
+    <div className="budget">
+        <h4>Budgeting area</h4>
+    </div>
+)
+
+export default Budget
 
 
-import SideBar from "../components/SideBar";
-import Content from "../components/Content";
+// import SideBar from "../components/SideBar";
+// import Content from "../components/Content";
 
 // class SideDrawer {handleViewSidebar} {
 //     state = {

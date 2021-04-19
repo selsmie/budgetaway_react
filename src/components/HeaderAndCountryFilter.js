@@ -9,11 +9,11 @@ const HeaderAndCountryFilter = ({countries, onCountrySelect}) => {
     const budgetClick = () => {
 
     }
-{/* <p onClick={budgetClick}>Budgeting</p> */}
+
     return (
         <header>
             <div className="title-links">
-                <div className="budget">
+                <div className="budget-link">
                     <BudgetNav/>
                 </div>
                 <img src={logo} alt="logo"/>

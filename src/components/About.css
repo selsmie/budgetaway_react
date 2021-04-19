@@ -1,0 +1,10 @@
+.about {
+    border: 1px solid black;
+    margin: 20px 10%;
+    padding: 10px;
+    text-align: justify;
+}
+
+.about > h4 {
+    margin: 5px;
+}

@@ -2,7 +2,9 @@ import {Link} from "react-router-dom"
 
 const BudgetNav = () => {
     return(
-        <Link to="/budget">Budget</Link>
+        <div className="budget-link">
+            <Link to="/budget">Budget</Link>
+        </div>
     )
 }
 

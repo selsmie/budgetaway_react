@@ -5,7 +5,9 @@ import "./SelectedCountryDetails.css"
 const SelectedCountryDetail = ({selectedCountry, onSearchSubmit}) => {
 
     const affordability = () => {
-        if (selectedCountry.region.match("Eastern Europe")){
+        if (selectedCountry.country_name === "United Kingdom of Great Britain and Northern Ireland") {
+            return "£££££"
+        } else if (selectedCountry.region.match("Eastern Europe")){
             return "€€€"
         } else if (selectedCountry.region.match("Europe")){
             return "€€€€€"
