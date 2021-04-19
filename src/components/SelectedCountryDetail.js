@@ -12,7 +12,7 @@ const SelectedCountryDetail = ({selectedCountry, onSearchSubmit}) => {
     <h2 id="country-name">{selectedCountry.country_name}</h2>
     <img src={selectedCountry.flag} alt="flag" id="flag"/>
     
-    <div class="details" >
+    <div className="details" >
         <p id="region">Region: {selectedCountry.region}</p>
         <p id="listable">Currencies: {selectedCountry.currencies[0]}</p>
         <p id="listable">Languages: {selectedCountry.languages}</p>
