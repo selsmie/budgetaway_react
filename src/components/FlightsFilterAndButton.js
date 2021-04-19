@@ -9,6 +9,12 @@ const FlightsFilterAndButton = ({selectedCountry, onSearchSubmit}) => {
         return <option value={airport} key={index}>{airport}</option>
     })
 
+    const defaultAirports = ["Edinburgh", "Glasgow", "Heathrow", "Stansted", "Gatwick", "Luton"]
+
+    const defaults = defaultAirports.map((airport, index) => {
+        return <option value={airport} key={index}>{airport}</option>
+    })
+
     const handleDepAirportChange = (evt) => {
         setDepartureAirport(evt.target.value)
     }
@@ -25,6 +31,7 @@ const FlightsFilterAndButton = ({selectedCountry, onSearchSubmit}) => {
                 <select name="departure-airport" id="departure-airport" onChange={handleDepAirportChange}>
                     <option value="disabled">Departure Airport</option>
                     {airports}
+                    {defaults}
                 </select>
                 <input type="submit" value="Search Flights"/>
             </form>

@@ -1,17 +1,5 @@
 const countryURL = 'http://localhost:8080/countries';
 
-
-// const addCountry = (country) =>{
-//     return fetch(countryURL, {
-//         method: 'POST',
-//         body: JSON.stringify(country),
-//         headers: {
-//             'Content-Type': 'application/json'
-//         }
-//     })
-//     .then(res => res.json())
-// }
-
 const addCountries = (countries) =>{
     return fetch(countryURL, {
         method: 'POST',
@@ -22,6 +10,12 @@ const addCountries = (countries) =>{
     })
     .then(res => res.json())
 }
+
+const getAllCountries = () => {
+    return fetch(countryURL)
+    .then(res => res.json())
+}
+    
 
 const getCountriesWithLanguageAndRegion = (searchLanguage, searchRegion) => {
     return fetch(countryURL + "?language=" + searchLanguage + "&region=" + searchRegion)
@@ -48,4 +42,4 @@ const getAllRegions = () => {
     .then(res => res.json())
 }
 
-export {addCountries, getCountriesWithLanguageAndRegion, getCountriesWithLanguage, getCountriesWithRegion, getAllLanguages, getAllRegions}
+export {addCountries, getAllCountries, getCountriesWithLanguageAndRegion, getCountriesWithLanguage, getCountriesWithRegion, getAllLanguages, getAllRegions}

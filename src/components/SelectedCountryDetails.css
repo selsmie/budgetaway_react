@@ -2,21 +2,28 @@
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     grid-template-areas: 
-    "name region listable"
-    "flag buttons map";
+    "name name name"
+    "flag details map";
+    border: 1px black solid;
+    justify-items: center;
+    align-items: center;
+    padding: 20px;
+    margin: 30px;
 }
 
 #flag {
-    height: 200px;
-    width: auto;
+    height: 240px;
+    width: 350px;
     grid-area: flag;
 }
 
 #country-name{
     grid-area: name;
+    justify-self: center;
+    margin: 5px;
 }
 
-#listable {
+.listable {
     grid-area: listable;
 }
 
@@ -31,5 +38,9 @@
 #id {
     grid-area: buttons;
 
+}
+
+#afford{
+    grid-area: afford;
 }
 

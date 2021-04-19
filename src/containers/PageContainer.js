@@ -1,8 +1,8 @@
 import { useState, useEffect } from 'react'
 import HeaderAndCountryFilter from '../components/HeaderAndCountryFilter'
 import CountryContainer from './CountryContainer'
-// import {BrowserRouter as Router, Route, Switch} from "react-router-dom"
-// import {addCountries, getCountriesWithLanguageAndRegion, getCountriesWithLanguage, getCountriesWithRegion, getAllLanguages, getAllRegions} from "../services/DataServices"
+import {BrowserRouter as Router, Route, Switch} from "react-router-dom"
+// import {addCountries, getCountriesWithLanguageAndRegion, getCountriesWithLanguage, getCountriesWithRegion, getAllLanguages, getAllRegions, getAllCountries} from "../services/DataServices"
 // import {flight_key} from "../config"
 
 const PageContainer = () => {
@@ -47,8 +47,7 @@ const PageContainer = () => {
     }, [])
 
     // useEffect(() => {
-        
-    //     for(let i = 0; i < 1; i++) {
+    //     // for(let i = 0; i < 1; i++) {
     //         fetch(`http://api.aviationstack.com/v1/airports?access_key=${flight_key}`)
     //         .then(res => res.json())
     //         // .then(data => setRawAirports(data.data))
@@ -60,9 +59,9 @@ const PageContainer = () => {
     //                 }
     //             }))
     //         })
-    //     }
+    //     // }
         
-    // }, [rawCountries])
+    // }, [])
 
 
     // useEffect(() => {
@@ -72,39 +71,55 @@ const PageContainer = () => {
     //         countries[index].airports.push(airport.name)
     //     })
     //     setRawCountries(countries)
-    // }, [rawAirports, rawCountries])
+    // }, [rawAirports])
 
     
     // iterate through all countries and save each country to the db
     // also populate allLanguages and allRegions
     useEffect(() => {
-        // addCountries(allCountries)
-        // setAllLanguages(getAllLanguages())
-        // setAllRegions(getAllRegions())
-    }, [allCountries])
+        // addCountries(rawCountries)
+        // setAllLanguages(
+        //     getAllLanguages()
+        //         .then(data => data)
+        // )
+        // setAllRegions(
+        //     getAllRegions()
+        //         .then(data => data)
+        // )
+    }, [rawCountries])
 
     //get filtered countries list depending on which filter is used
     useEffect(() => {
     //     if (selectedLanguage && selectedRegion) {
-    //         setAllFilteredCountries(getCountriesWithLanguageAndRegion(selectedLanguage, selectedRegion))
+            // setAllFilteredCountries(
+            //     getCountriesWithLanguageAndRegion(selectedLanguage, selectedRegion)
+            //         .then(data => data))
     //     }
     //     else if (selectedLanguage && !selectedRegion){
-    //         setAllFilteredCountries(getCountriesWithLanguage(selectedLanguage))
+            // setAllFilteredCountries(
+            //     getCountriesWithLanguage(selectedLanguage)
+            //         .then(data => data))
     //     } 
     //     else if (!selectedLanguage && selectedRegion) {
-    //         setAllFilteredCountries(getCountriesWithRegion(selectedRegion))
+            // setAllFilteredCountries(
+            //     getCountriesWithRegion(selectedRegion)
+            //         .then(data => data))
     //     } else {
-            setAllFilteredCountries(allCountries)
+            setAllFilteredCountries(rawCountries)
+            // setAllFilteredCountries(
+            //     getAllCountries()
+            //         .then(data => data))
     //     }
     // }, [selectedLanguage, selectedRegion, allCountries])
-    }, [allCountries])
+    }, [rawCountries])
+    // }, [allCountries])
 
     const findCountry = (searchCountry, collection) => {
         return collection.find(({country_name}) => country_name === searchCountry)
     }
 
     const getSelectedCountry = () => {
-        setSelectedCountry(findCountry(selectedCountryId, allCountries))
+        setSelectedCountry(findCountry(selectedCountryId, rawCountries))
     }
 
     const selectCountry = submitted => {
@@ -120,22 +135,18 @@ const PageContainer = () => {
     }
 
     return (
-        // <Router>
-        //     <>
-        //         <HeaderAndCountryFilter countries={allFilteredCountries} selectedCountry={selectedCountry} onCountrySelect={selectCountry}/>
-        //         <Switch>
-        //             <Route exact path="/">
-        //                 <CountryContainer countries={allFilteredCountries} selectedCountry={selectedCountry} onCountrySelect={selectCountry}/>
-        //             </Route>
-        //             {/* <Route path="/wishlist" component={WishlistContainer}/> */}
-        //             {/* <Router path="/about" component={About}/> */}
-        //         </Switch>
-        //     </>
-        // </Router>
-        <>
-        <HeaderAndCountryFilter countries={allFilteredCountries} selectedCountry={selectedCountry} onCountrySelect={selectCountry}/>
-        <CountryContainer selectedCountry={selectedCountry} onSearchSubmit={searchFlights}/>
-        </>
+        <Router>
+            <>
+                <HeaderAndCountryFilter countries={allFilteredCountries} selectedCountry={selectedCountry} onCountrySelect={selectCountry}/>
+                <Switch>
+                    <Route exact path="/">
+                        <CountryContainer selectedCountry={selectedCountry} onCountrySelect={selectCountry}/>
+                    </Route>
+                    <Route path="/wishlist" component={WishlistContainer}/>
+                    <Router path="/about" component={About}/>
+                </Switch>
+            </>
+        </Router>
     )
 
 
