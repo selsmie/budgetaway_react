@@ -38,7 +38,7 @@ const PageContainer = () => {
         .then(res => res.json())
         .then((data) => {
             setRawCountries(data.map((entry) => {
-                return {country_name: entry.name, 
+                return {name: entry.name, 
                     flag: entry.flag, 
                     latitude: entry.latlng[0],
                     longitude: entry.latlng[1],
@@ -72,7 +72,7 @@ const PageContainer = () => {
     // useEffect(() => {
     //     const countries = [...rawCountries]
     //     rawAirports.map((airport) => {
-    //         const index = countries.indexOf((country) => country.country_name === airport.country)
+    //         const index = countries.indexOf((country) => country.name === airport.country)
     //         countries[index].airports.push(airport.name)
     //     })
     //     setRawCountries(countries)
@@ -120,7 +120,7 @@ const PageContainer = () => {
     // }, [allCountries])
 
     const findCountry = (searchCountry, collection) => {
-        return collection.find(({country_name}) => country_name === searchCountry)
+        return collection.find(({name}) => name === searchCountry)
     }
 
     const getSelectedCountry = () => {

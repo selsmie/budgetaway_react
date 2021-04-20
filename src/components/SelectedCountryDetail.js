@@ -5,7 +5,7 @@ import "./SelectedCountryDetails.css"
 const SelectedCountryDetail = ({selectedCountry, onSearchSubmit}) => {
 
     const affordability = () => {
-        if (selectedCountry.country_name === "United Kingdom of Great Britain and Northern Ireland") {
+        if (selectedCountry.name === "United Kingdom of Great Britain and Northern Ireland") {
             return "£££££"
         } else if (selectedCountry.region.match("Eastern Europe")){
             return "€€€"
@@ -39,7 +39,7 @@ const SelectedCountryDetail = ({selectedCountry, onSearchSubmit}) => {
 
     const displayableDetails = (selectedCountry) ? 
     <div className="country-details">
-        <h2 id="country-name">{selectedCountry.country_name}</h2>
+        <h2 id="country-name">{selectedCountry.name}</h2>
         <img src={selectedCountry.flag} alt="flag" id="flag"/>
         <div className="details" >
             
