@@ -130,6 +130,13 @@ const PageContainer = () => {
         setSelectedCountryId(submitted)
     }
 
+    const luckyDip = () => {
+        let randomValue = Math.floor(Math.random() * allFilteredCountries.length)
+        let randomCountry = allFilteredCountries[randomValue]
+        setSelectedCountryId(randomCountry.country_name)
+        getSelectedCountry()
+    }
+
     useEffect(() => {
         getSelectedCountry()
     })
@@ -141,7 +148,7 @@ const PageContainer = () => {
     return (
         <Router>
             <>
-                <HeaderAndCountryFilter countries={allFilteredCountries} selectedCountry={selectedCountry} onCountrySelect={selectCountry}/>
+                <HeaderAndCountryFilter countries={allFilteredCountries} selectedCountry={selectedCountry} onCountrySelect={selectCountry} luckyDip={luckyDip}/>
                 <Switch>
                     <Route exact path="/">
                         <CountryContainer selectedCountry={selectedCountry} onCountrySelect={selectCountry}/>
