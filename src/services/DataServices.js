@@ -1,4 +1,6 @@
 const countryURL = 'http://localhost:8080/countries';
+const languageURL = 'http://localhost:8080/languages';
+
 
 const addCountries = (countries) =>{
     return fetch(countryURL, {
@@ -33,12 +35,12 @@ const getCountriesWithRegion = (searchRegion) => {
 }
 
 const getAllLanguages = () => {
-    return fetch(countryURL + "?languages=true")
+    return fetch(languageURL)
     .then(res => res.json())
 }
 
 const getAllRegions = () => {
-    return fetch(countryURL + "?regions=true")
+    return fetch(countryURL + "regions")
     .then(res => res.json())
 }
 

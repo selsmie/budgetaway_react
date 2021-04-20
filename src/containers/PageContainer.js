@@ -14,8 +14,8 @@ const PageContainer = () => {
    
     const [rawCountries, setRawCountries] = useState([]);
     // const [rawAirports, setRawAirports] = useState([]);
-    const [allCountries, setAllCountries] = useState('"');
-    // const [allLanguages, setAllLanguages] = useState([]);
+    const [allCountries, setAllCountries] = useState([]);
+    const [allLanguages, setAllLanguages] = useState([]);
     // const [allRegions, setAllRegions] = useState([]);
     const [allFilteredCountries, setAllFilteredCountries] = useState([]);
     // const [allFilteredFlights, setAllFilteredFlights] = useState([]);
@@ -107,18 +107,16 @@ const PageContainer = () => {
     // iterate through all countries and save each country to the db
     // also populate allLanguages and allRegions
     useEffect(() => {
-        if (rawCountries.length > 0){
+        // if (allCountries.length > 0){
             // addCountries(rawCountries)
-            // setAllLanguages(
-            //     getAllLanguages()
-            //         .then(data => data)
-            // )
-            // setAllRegions(
-            //     getAllRegions()
-            //         .then(data => data)
-            // )
-        }
-    }, [rawCountries])
+            
+            getAllLanguages()
+                .then(data => setAllLanguages(data))
+            
+            // getAllRegions()
+            //     .then(data => setAllRegions(data))
+        // }
+    }, [])
 
     //get filtered countries list depending on which filter is used
     useEffect(() => {
@@ -180,10 +178,14 @@ const PageContainer = () => {
         // setDepartureAirport(departureAirport)
     }
 
+    const selectLanguage = submitted => {
+        setSelectedLanguage(submitted)
+    }
+
     return (
         <Router>
             <>
-                <HeaderAndCountryFilter countries={allFilteredCountries} selectedCountry={selectedCountry} onCountrySelect={selectCountry} luckyDip={luckyDip}/>
+                <HeaderAndCountryFilter countries={allFilteredCountries} selectedCountry={selectedCountry} onCountrySelect={selectCountry} luckyDip={luckyDip} languages={allLanguages} onLanguageChange={selectLanguage}/>
                 <Switch>
                     <Route exact path="/">
                         <CountryContainer selectedCountry={selectedCountry} onCountrySelect={selectCountry}/>
