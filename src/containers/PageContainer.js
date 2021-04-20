@@ -6,6 +6,9 @@ import About from '../components/About'
 import Wishlist from '../components/Wishlist'
 // import {addCountries, getCountriesWithLanguageAndRegion, getCountriesWithLanguage, getCountriesWithRegion, getAllLanguages, getAllRegions, getAllCountries} from "../services/DataServices"
 // import {flight_key} from "../config"
+import countries from "../data/countries"
+import airports from "../data/airports"
+
 
 const PageContainer = () => {
    
