@@ -40,7 +40,8 @@ const PageContainer = () => {
             setRawCountries(data.map((entry) => {
                 return {country_name: entry.name, 
                     flag: entry.flag, 
-                    coordinates: entry.latlng, 
+                    latitude: entry.latlng[0],
+                    longitude: entry.latlng[1],
                     region: (entry.subregion) ? entry.subregion : entry.region,
                     currencies: filterEntryArray(entry.currencies),
                     languages: filterEntryArray(entry.languages),
