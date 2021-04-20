@@ -38,28 +38,29 @@
   
   /* General sidebar styles */
   .bm-menu {
-    background: #373a47;
+    background:rgb(241, 87, 4);
     padding: 2.5em 1.5em 0;
     font-size: 1.15em;
+    color: sandybrown;
   }
   
   /* Morph shape necessary with bubble or elastic */
-  .bm-morph-shape {
+  /* .bm-morph-shape {
     fill: #373a47;
-  }
+  } */
   
   /* Wrapper for item list */
-  .bm-item-list {
+  /* .bm-item-list {
     color: #b8b7ad;
     padding: 0.8em;
-  }
+  } */
   
   /* Individual item */
-  .bm-item {
+  /* .bm-item {
     display: inline-block;
-  }
+  } */
   
   /* Styling of overlay */
-  .bm-overlay {
+  /* .bm-overlay {
     background: rgba(0, 0, 0, 0.3);
-  }
+  } */
