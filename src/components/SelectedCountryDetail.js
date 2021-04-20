@@ -52,7 +52,7 @@ const SelectedCountryDetail = ({selectedCountry, onSearchSubmit}) => {
             </div>
         </div>
         <div id="map">
-            <CountryMap selectedCoordinates={selectedCountry.coordinates} />
+            <CountryMap selectedCoordinates={[selectedCountry.latitude, selectedCountry.longitude]} />
         </div>
     </div> : null
 

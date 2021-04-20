@@ -2,7 +2,6 @@ import CountryList from './CountryList'
 import NavBar from "./NavBar"
 import './HeaderAndCountryFilter.css'
 import logo from "../logo.png"
-import BudgetNav from "./BudgetNav"
 
 const HeaderAndCountryFilter = ({countries, onCountrySelect, luckyDip}) => {
 
@@ -17,9 +16,6 @@ const HeaderAndCountryFilter = ({countries, onCountrySelect, luckyDip}) => {
     return (
         <header>
             <div className="title-links">
-                <div className="budget-link">
-                    <BudgetNav/>
-                </div>
                 <img src={logo} alt="logo"/>
                 <div className="navbar">
                     <NavBar/>

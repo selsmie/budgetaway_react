@@ -1,0 +1,39 @@
+.bm-burger-button {
+    position: fixed;
+    width: 15px;
+    height: 15px;
+    left: 36px;
+    top: 36px;
+}
+  
+.bm-burger-bars {
+    background: #373a47;
+}
+  
+.bm-burger-bars-hover {
+    background: #a90000;
+}
+  
+.bm-cross-button {
+    height: 24px;
+    width: 24px;
+}
+  
+.bm-cross {
+    background: #bdc3c7;
+}
+  
+.bm-menu-wrap {
+    position: fixed;
+    height: 100%;
+}
+
+.bm-menu {
+    background:rgb(241, 87, 4);
+    padding: 2.5em 1.5em 0;
+    font-size: 1.15em;
+    color: sandybrown;
+}
+  
+  
+  
