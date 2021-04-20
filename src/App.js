@@ -1,11 +1,13 @@
 import PageContainer from "./containers/PageContainer";
-import "./App.css"
+import SideBar from './components/SideBar'
 
 function App() {
   return (
     <div className="App">
+      <SideBar/>
       <PageContainer/>
     </div>
+
   );
 }
 

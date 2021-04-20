@@ -1,14 +1,14 @@
-// class SideBar = ({toggleSidebar}) => {
-//   render() {
-//     var sidebarClass = this.props.isOpen ? "sidebar open" : "sidebar";
-//     return (
-//       <div className={sidebarClass}>
-//         <div>I have slided</div>
+import './SideBar.css'
+import BudgetContainer from '../containers/BudgetContainer.js'
+ 
 
-//         <button onClick={this.props.toggleSidebar} className="sidebar-toggle">Sidebar</button>
-//       </div>
-//     );
-//   }
-// }
+import React from 'react';
+import { slide as SideBar } from 'react-burger-menu';
 
-// export default SideBar;
+export default props => {
+  return (
+    <SideBar>
+      <BudgetContainer/>
+    </SideBar>
+  );
+};
