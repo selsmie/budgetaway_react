@@ -3,9 +3,7 @@ import HeaderAndCountryFilter from '../components/HeaderAndCountryFilter'
 import CountryContainer from './CountryContainer'
 import {BrowserRouter as Router, Route, Switch} from "react-router-dom"
 import About from '../components/About'
-import Budget from '../components/Budget'
 import Wishlist from '../components/Wishlist'
-// import SideDrawer from '../components/Budget'
 // import {addCountries, getCountriesWithLanguageAndRegion, getCountriesWithLanguage, getCountriesWithRegion, getAllLanguages, getAllRegions, getAllCountries} from "../services/DataServices"
 // import {flight_key} from "../config"
 
@@ -148,7 +146,6 @@ const PageContainer = () => {
                     </Route>
                     <Route path="/wishlist" component={Wishlist}/>
                     <Route path="/about" component={About}/>
-                    <Route path="/budget" component={Budget}/>
                 </Switch>
             </>
         </Router>

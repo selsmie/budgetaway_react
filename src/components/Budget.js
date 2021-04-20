@@ -6,7 +6,8 @@ function BudgetForm({ onSubmit }) {
   const [budgetData, setBudgetData] = useState({
     salary: '',
     savings: '',
-    outgoings: ''
+    outgoings: '',
+    holiday: ''
   });
 
   const handleChange = (event) => {
@@ -15,10 +16,21 @@ function BudgetForm({ onSubmit }) {
     setBudgetData(newState);
   }
 
+  const calculateBudget = () => {
+    const monthlySalary = budgetData.salary / 12;
+    const money_needed = budgetData.holiday - budgetData.savings;
+    const excess = monthlySalary - budgetData.outgoings;
+    const departureMonths = money_needed/excess;
+
+    return "If you save £" + {excess} + " per month, you can go on holiday in " + {departureMonths} + " months.";
+
+  }
+
   const handleSubmit = (event) => {
     event.preventDefault();
-    onSubmit(budgetData);
+    onSubmit();
   }
+
     return(
         <form>
             <div className="budget-form">
@@ -40,7 +52,7 @@ function BudgetForm({ onSubmit }) {
                     <input
                     onChange={handleChange}
                     min="0"
-                    step="1000"
+                    step="100"
                     type="number"
                     id="savings"
                     name="savings"
@@ -48,15 +60,27 @@ function BudgetForm({ onSubmit }) {
                 </div>
 
                 <div className="search-bar">
-                    <label htmlFor="other">Outgoings:</label>
+                    <label htmlFor="outgoings">Monthly outgoings:</label>
                     <input
                     onChange={handleChange}
                     min="0"
                     step="100"
                     type="number"
-                    id="outgings"
+                    id="outgoings"
                     name="outgoings"
                     value={budgetData.outgoings} />
+                </div>
+
+                <div className="search-bar">
+                  <label htmlFor="holiday">Holiday Cost:</label>
+                  <input
+                  onChange={handleChange}
+                  min="0"
+                  step="500"
+                  type="number"
+                  id="holiday"
+                  name="holiday"
+                  value={budgetData.holiday} />
                 </div>
 
                 <input onClick={handleSubmit} type="submit" value="submit" />
