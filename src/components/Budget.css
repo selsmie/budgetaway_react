@@ -1,11 +1,15 @@
-.budget {
+/* .budget {
   border: 1px solid black;
   margin: 20px 10%;
   padding: 10px;
   text-align: justify;
-}
+ } */
 
 .budget > h4 {
   margin: 5px;
+ } 
+
+.li {
+  background-color: rosybrown;
 }
 

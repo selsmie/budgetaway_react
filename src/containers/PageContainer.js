@@ -5,7 +5,6 @@ import {BrowserRouter as Router, Route, Switch} from "react-router-dom"
 import About from '../components/About'
 import Budget from '../components/Budget'
 import Wishlist from '../components/Wishlist'
-import SideBar from '../components/SideBar'
 // import SideDrawer from '../components/Budget'
 // import {addCountries, getCountriesWithLanguageAndRegion, getCountriesWithLanguage, getCountriesWithRegion, getAllLanguages, getAllRegions, getAllCountries} from "../services/DataServices"
 // import {flight_key} from "../config"
@@ -142,7 +141,6 @@ const PageContainer = () => {
     return (
         <Router>
             <>
-                <SideBar/>
                 <HeaderAndCountryFilter countries={allFilteredCountries} selectedCountry={selectedCountry} onCountrySelect={selectCountry}/>
                 <Switch>
                     <Route exact path="/">
