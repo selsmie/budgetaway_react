@@ -149,9 +149,11 @@ const PageContainer = () => {
 
     useEffect(() => {
         airports.forEach((airport) => {
-            const index = countries.findIndex((country) => country.name === airport.country)
-            if (index !== -1) {
-                countries[index].airports.push(airport)
+            if (airport.country) {
+                const index = countries.findIndex((country) => country.name === airport.country)
+                if (index !== -1) {
+                    countries[index].airports.push(airport)
+                }
             }
         })
         setAllCountries(countries)
