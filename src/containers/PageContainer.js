@@ -13,14 +13,14 @@ import airports from "../data/airports"
 const PageContainer = () => {
    
     const [rawCountries, setRawCountries] = useState([]);
-    const [rawAirports, setRawAirports] = useState([]);
-    const [allCountries, setAllCountries] = useState([]);
+    // const [rawAirports, setRawAirports] = useState([]);
+    const [allCountries, setAllCountries] = useState('"');
     // const [allLanguages, setAllLanguages] = useState([]);
     // const [allRegions, setAllRegions] = useState([]);
     const [allFilteredCountries, setAllFilteredCountries] = useState([]);
     // const [allFilteredFlights, setAllFilteredFlights] = useState([]);
-    // const [selectedLanguage, setSelectedLanguage] = useState("");
-    // const [selectedRegion, setSelectedRegion] = useState("");
+    const [selectedLanguage, setSelectedLanguage] = useState("");
+    const [selectedRegion, setSelectedRegion] = useState("");
     const [selectedCountryId, setSelectedCountryId] = useState("");
     const [selectedCountry, setSelectedCountry] = useState("");
     const [departureAirport, setDepartureAirport] = useState("");
@@ -107,8 +107,8 @@ const PageContainer = () => {
     // iterate through all countries and save each country to the db
     // also populate allLanguages and allRegions
     useEffect(() => {
-        if (allCountries.length > 0){
-            // addCountries(allCountries)
+        if (rawCountries.length > 0){
+            // addCountries(rawCountries)
             // setAllLanguages(
             //     getAllLanguages()
             //         .then(data => data)
@@ -118,52 +118,47 @@ const PageContainer = () => {
             //         .then(data => data)
             // )
         }
-    }, [allCountries])
+    }, [rawCountries])
 
     //get filtered countries list depending on which filter is used
     useEffect(() => {
-    //     if (selectedLanguage && selectedRegion) {
-            // setAllFilteredCountries(
-            //     getCountriesWithLanguageAndRegion(selectedLanguage, selectedRegion)
-            //         .then(data => data))
-    //     }
-    //     else if (selectedLanguage && !selectedRegion){
-            // setAllFilteredCountries(
-            //     getCountriesWithLanguage(selectedLanguage)
-            //         .then(data => data))
-    //     } 
-    //     else if (!selectedLanguage && selectedRegion) {
-            // setAllFilteredCountries(
-            //     getCountriesWithRegion(selectedRegion)
-            //         .then(data => data))
-    //     } else {
-            setAllFilteredCountries(allCountries)
-            // setAllFilteredCountries(
-            //     getAllCountries()
-            //         .then(data => data))
-    //     }
-    // }, [selectedLanguage, selectedRegion, allCountries])
-    }, [allCountries])
-    // }, [allCountries])
+        if (selectedLanguage && selectedRegion) {
+            getCountriesWithLanguageAndRegion(selectedLanguage, selectedRegion)
+                .then(data => setAllFilteredCountries(data))
+        }
+        else if (selectedLanguage && !selectedRegion){
+            getCountriesWithLanguage(selectedLanguage)
+                .then(data => setAllFilteredCountries(data))
+        } 
+        else if (!selectedLanguage && selectedRegion) {
+            getCountriesWithRegion(selectedRegion)
+                .then(data => setAllFilteredCountries(data))
+        } else {
+            getAllCountries()
+                .then(data => setAllFilteredCountries(data))
+        }
+    }, [selectedLanguage, selectedRegion, allCountries])
 
-    useEffect(() => {
-        airports.forEach((airport) => {
-            if (airport.country) {
-                const index = countries.findIndex((country) => country.name === airport.country)
-                if (index !== -1) {
-                    countries[index].airports.push(airport)
-                }
-            }
-        })
-        setAllCountries(countries)
-    }, [])
+
+    // useEffect(() => {
+    //     airports.forEach((airport) => {
+    //         if (airport.country) {
+    //             const index = countries.findIndex((country) => country.name === airport.country)
+    //             if (index !== -1) {
+    //                 countries[index].airports.push(airport)
+    //             }
+    //         }
+    //     })
+    //     setRawCountries(countries)
+    // }, [])
+
 
     const findCountry = (searchCountry, collection) => {
         return collection.find(({name}) => name === searchCountry)
     }
 
     const getSelectedCountry = () => {
-        setSelectedCountry(findCountry(selectedCountryId, allCountries))
+        setSelectedCountry(findCountry(selectedCountryId, allFilteredCountries))
     }
 
     const selectCountry = submitted => {
@@ -182,7 +177,7 @@ const PageContainer = () => {
     })
 
     const searchFlights = (departureAirport) => {
-        setDepartureAirport(departureAirport)
+        // setDepartureAirport(departureAirport)
     }
 
     return (

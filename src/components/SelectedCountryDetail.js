@@ -9,6 +9,8 @@ const SelectedCountryDetail = ({selectedCountry, onSearchSubmit}) => {
             return "£££££"
         } else if (selectedCountry.region.match("Eastern Europe")){
             return "€€€"
+        } else if (selectedCountry.region.match("Southern Europe")){
+            return "€€€€"
         } else if (selectedCountry.region.match("Europe")){
             return "€€€€€"
         } else if (selectedCountry.region.match("Eastern Asia")){
@@ -37,6 +39,12 @@ const SelectedCountryDetail = ({selectedCountry, onSearchSubmit}) => {
         return "?"
     }
 
+    const displayArray = array => {
+        const newArray = []
+        array.forEach((item) => newArray.push(item.name))
+        return newArray
+    }
+
     const displayableDetails = (selectedCountry) ? 
     <div className="country-details">
         <h2 id="country-name">{selectedCountry.name}</h2>
@@ -45,8 +53,8 @@ const SelectedCountryDetail = ({selectedCountry, onSearchSubmit}) => {
             
             <p id="afford">Affordability: {affordability()}</p>
             <p id="region">Region: {selectedCountry.region}</p>
-            <p className="listable">Currencies: {selectedCountry.currencies.join(", ")}</p>
-            <p className="listable">Languages: {selectedCountry.languages.join(", ")}</p>
+            <p className="listable">Currencies: {displayArray(selectedCountry.currencies).join(", ")}</p>
+            <p className="listable">Languages: {displayArray(selectedCountry.languages).join(", ")}</p>
             <div id="buttons">
                 <FlightsFilterAndButton selectedCountry={selectedCountry} onSearchSubmit={onSearchSubmit} />
             </div>
