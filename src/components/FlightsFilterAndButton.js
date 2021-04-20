@@ -6,7 +6,7 @@ const FlightsFilterAndButton = ({selectedCountry, onSearchSubmit}) => {
     
     const airports = selectedCountry.airports.map((airport, index) => {
         // return <option value={airport.airport_name} key={index}>{airport.airport_name}</option>
-        return <option value={airport} key={index}>{airport}</option>
+        return <option value={airport} key={index}>{airport.name}</option>
     })
 
     const defaultAirports = ["Edinburgh", "Glasgow", "Heathrow", "Stansted", "Gatwick", "Luton"]

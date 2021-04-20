@@ -4,7 +4,7 @@ import CountryContainer from './CountryContainer'
 import {BrowserRouter as Router, Route, Switch} from "react-router-dom"
 import About from '../components/About'
 import Wishlist from '../components/Wishlist'
-// import {addCountries, getCountriesWithLanguageAndRegion, getCountriesWithLanguage, getCountriesWithRegion, getAllLanguages, getAllRegions, getAllCountries} from "../services/DataServices"
+import {addCountries, getCountriesWithLanguageAndRegion, getCountriesWithLanguage, getCountriesWithRegion, getAllLanguages, getAllRegions, getAllCountries} from "../services/DataServices"
 // import {flight_key} from "../config"
 import countries from "../data/countries"
 import airports from "../data/airports"
@@ -108,7 +108,7 @@ const PageContainer = () => {
     // also populate allLanguages and allRegions
     useEffect(() => {
         if (allCountries.length > 0){
-            addCountries(allCountries)
+            // addCountries(allCountries)
             // setAllLanguages(
             //     getAllLanguages()
             //         .then(data => data)
@@ -137,13 +137,13 @@ const PageContainer = () => {
             //     getCountriesWithRegion(selectedRegion)
             //         .then(data => data))
     //     } else {
-            setAllFilteredCountries(rawCountries)
+            setAllFilteredCountries(allCountries)
             // setAllFilteredCountries(
             //     getAllCountries()
             //         .then(data => data))
     //     }
     // }, [selectedLanguage, selectedRegion, allCountries])
-    }, [rawCountries])
+    }, [allCountries])
     // }, [allCountries])
 
     useEffect(() => {
@@ -163,7 +163,7 @@ const PageContainer = () => {
     }
 
     const getSelectedCountry = () => {
-        setSelectedCountry(findCountry(selectedCountryId, rawCountries))
+        setSelectedCountry(findCountry(selectedCountryId, allCountries))
     }
 
     const selectCountry = submitted => {
@@ -173,7 +173,7 @@ const PageContainer = () => {
     const luckyDip = () => {
         let randomValue = Math.floor(Math.random() * allFilteredCountries.length)
         let randomCountry = allFilteredCountries[randomValue]
-        setSelectedCountryId(randomCountry.country_name)
+        setSelectedCountryId(randomCountry.name)
         getSelectedCountry()
     }
 

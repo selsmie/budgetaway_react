@@ -4,18 +4,20 @@
     grid-template-areas: 
     "name name name"
     "flag details map";
-    border: 1px black solid;
+    border: 2px cornsilk solid;
+    border-radius: 12px;
     justify-items: center;
     align-items: center;
     padding: 20px;
     margin: 30px;
+    background-color: rgba(99, 164, 167, 0.8);
 }
 
 #flag {
     height: 240px;
     width: 350px;
     grid-area: flag;
-    border: 1px black solid;
+    
 }
 
 #country-name{
