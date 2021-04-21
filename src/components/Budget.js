@@ -7,7 +7,6 @@ function BudgetForm({ onSubmit }) {
     salary: '',
     savings: '',
     outgoings: '',
-    holiday: ''
   });
 
   const handleChange = (event) => {
@@ -16,27 +15,18 @@ function BudgetForm({ onSubmit }) {
     setBudgetData(newState);
   }
 
-  const calculateBudget = () => {
-    const monthlySalary = budgetData.salary / 12;
-    const money_needed = budgetData.holiday - budgetData.savings;
-    const excess = monthlySalary - budgetData.outgoings;
-    const departureMonths = money_needed/excess;
-
-    return "If you save £" + {excess} + " per month, you can go on holiday in " + {departureMonths} + " months.";
-
-  }
-
   const handleSubmit = (event) => {
     event.preventDefault();
-    onSubmit();
+    onSubmit(budgetData);
   }
 
     return(
+      <>
         <form>
             <div className="budget-form">
                 <h4>Create your budget</h4>
                 <div className="search-bar">
-                    <label htmlFor="salary">Your salary:</label>
+                    <label id="salary">Your salary:</label>
                     <input
                     onChange={handleChange}
                     min="0"
@@ -48,7 +38,7 @@ function BudgetForm({ onSubmit }) {
                 </div>
 
                 <div className="search-bar">
-                    <label htmlFor="savings">Your savings:</label>
+                    <label id="savings">Your savings:</label>
                     <input
                     onChange={handleChange}
                     min="0"
@@ -60,7 +50,7 @@ function BudgetForm({ onSubmit }) {
                 </div>
 
                 <div className="search-bar">
-                    <label htmlFor="outgoings">Monthly outgoings:</label>
+                    <label id="outgoings">Outgoings p/m:</label>
                     <input
                     onChange={handleChange}
                     min="0"
@@ -72,7 +62,7 @@ function BudgetForm({ onSubmit }) {
                 </div>
 
                 <div className="search-bar">
-                  <label htmlFor="holiday">Holiday Cost:</label>
+                  <label id="holiday">Holiday Cost:</label>
                   <input
                   onChange={handleChange}
                   min="0"
@@ -83,10 +73,12 @@ function BudgetForm({ onSubmit }) {
                   value={budgetData.holiday} />
                 </div>
 
-                <input onClick={handleSubmit} type="submit" value="submit" />
+                <input id="submit" onClick={handleSubmit} type="submit" value="Submit" />
                     
              </div>
         </form>
+      </>
     )
+    
 }
 export default BudgetForm;

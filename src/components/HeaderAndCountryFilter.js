@@ -3,33 +3,33 @@ import NavBar from "./NavBar"
 import './HeaderAndCountryFilter.css'
 import logo from "../logo.png"
 
-const HeaderAndCountryFilter = ({countries, onCountrySelect, luckyDip, languages, onLanguageChange}) => {
+const HeaderAndCountryFilter = ({countries, onCountrySelect, luckyDip, languages, onRegionChange, onLanguageChange, regions}) => {
 
     const budgetClick = () => {
-
     }
 
     const handleLuckyDip = (evt) => {
         luckyDip()
     }
 
-    const displayEnglish = (languages) ? languages.map((language, id) => {
-        if (language.name === "English"){
-            return <option value={language.name} key={id}>{language.name}</option>
-        }
-        return null
-    }) : null
+    const displayRegions = (regions) ? 
+        regions.sort().map((region, index) => {
+            return <option value={region} key={index}>{region}</option>
+        }) : null
 
-    const displayLanguages = (languages) ? 
-    languages.map((language, id) => {
-        if (language.name === "English"){
-            return null
-        }
-        return <option value={language.name} key={id}>{language.name}</option>
-    }) : null
+    const displayLanguages = (languages) ?
+        languages.sort((a, b) => a.name.localeCompare(b.name))
+        .map((language, id) => {
+            return <option value={language.name} key={id}>{language.name}</option>
+        }) : null
+        
 
     const handleLanguageSelect = (evt) => {
         onLanguageChange(evt.target.value)
+    }
+
+    const handleRegionSelect = (evt) => {
+        onRegionChange(evt.target.value)
     }
 
     return (
@@ -44,11 +44,13 @@ const HeaderAndCountryFilter = ({countries, onCountrySelect, luckyDip, languages
             <div className="search-bar">
                     <select className="languages" name="lanugages" id="languages" onChange={handleLanguageSelect}>
                         <option value="disabled">Select Language</option>
-                        {displayEnglish}
                         {displayLanguages}
                     </select>
-                    <select className="regions" name="regions" id="regions">
+
+                    <select className="regions" name="regions" id="regions" onChange={handleRegionSelect}>
+
                         <option value="disabled">Select Region</option>
+                        {displayRegions}
                     </select>
                     <div className="nations">
                     <CountryList countries={countries} onCountrySelect={onCountrySelect}/>
