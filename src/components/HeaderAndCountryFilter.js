@@ -61,8 +61,8 @@ const HeaderAndCountryFilter = ({countries, onCountrySelect, luckyDip, languages
                         <option countries={countries}>Lucky Dip</option>
                     </button>
 
-                    <div class="slidecontainer">
-                    <input type="range" min="1" max="100" value="50" class="slider" id="myRange"/>
+                    <div className="slidecontainer">
+                    {/* <input type="range" min="1" max="100" value="50" className="slider" id="myRange"/> */}
                     </div>
         </header>
     )
