@@ -1,14 +1,14 @@
 import React from 'react';
 import BudgetForm from './Budget';
 
-const BudgetDisplay = ({ maxAmount }) => {
+const BudgetDisplay = ({ maxAmount, maxExcess }) => {
   if (!maxAmount) {
     return null;
   }
 
   return (
     <>
-      <p>You can go on holiday in {maxAmount} months.</p>
+      <p>If you save {maxExcess} per month, you can go on holiday in {maxAmount} months.</p>
     </>
   );
 };
