@@ -4,7 +4,7 @@ import CountryContainer from './CountryContainer'
 import {BrowserRouter as Router, Route, Switch} from "react-router-dom"
 import About from '../components/About'
 import Wishlist from '../components/Wishlist'
-import {addCountries, getCountriesWithLanguageAndRegion, getCountriesWithLanguage, getCountriesWithRegion, getAllLanguages, getAllRegions, getAllCountries} from "../services/DataServices"
+import {addCountries, getCountriesWithLanguageAndRegion, getCountriesWithLanguage, getCountriesWithRegion, getAllLanguages, getAllCountries} from "../services/DataServices"
 // import {flight_key} from "../config"
 import countries from "../data/countries"
 import airports from "../data/airports"
@@ -16,7 +16,7 @@ const PageContainer = () => {
     // const [rawAirports, setRawAirports] = useState([]);
     const [allCountries, setAllCountries] = useState([]);
     const [allLanguages, setAllLanguages] = useState([]);
-    // const [allRegions, setAllRegions] = useState([]);
+    const [allRegions, setAllRegions] = useState([]);
     const [allFilteredCountries, setAllFilteredCountries] = useState([]);
     // const [allFilteredFlights, setAllFilteredFlights] = useState([]);
     const [selectedLanguage, setSelectedLanguage] = useState("");
@@ -69,6 +69,17 @@ const PageContainer = () => {
     //     }
     //     Promise.all(testArray)
     //     .then(data => console.log(JSON.stringify(data.flat())))
+
+    const getAllRegions = () => {
+        const set = new Set(allFilteredCountries.map((country) => {
+            return country.region
+        }))
+        setAllRegions(Array.from(set))
+    }
+
+    useEffect(() => {
+        getAllRegions()
+    })
     
     // iterate through all countries and save each country to the db
     // also populate allLanguages and allRegions
@@ -78,9 +89,6 @@ const PageContainer = () => {
             
             getAllLanguages()
                 .then(data => setAllLanguages(data))
-            
-            // getAllRegions()
-            //     .then(data => setAllRegions(data))
         // }
     }, [])
 
@@ -148,10 +156,15 @@ const PageContainer = () => {
         setSelectedLanguage(submitted)
     }
 
+
+    const selectRegion = submitted => {
+        setSelectedRegion(submitted)
+    }
+
     return (
         <Router>
             <>
-                <HeaderAndCountryFilter countries={allFilteredCountries} selectedCountry={selectedCountry} onCountrySelect={selectCountry} luckyDip={luckyDip} languages={allLanguages} onLanguageChange={selectLanguage}/>
+                <HeaderAndCountryFilter countries={allFilteredCountries} selectedCountry={selectedCountry} onCountrySelect={selectCountry} luckyDip={luckyDip} languages={allLanguages} regions={allRegions} onLanguageChange={selectLanguage} onRegionChange={selectRegion}/>
                 <Switch>
                     <Route exact path="/">
                         <CountryContainer selectedCountry={selectedCountry} onCountrySelect={selectCountry}/>
