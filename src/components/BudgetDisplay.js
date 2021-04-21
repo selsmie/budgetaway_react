@@ -1,5 +1,5 @@
 import React from 'react';
-import BudgetForm from './Budget';
+import "./BudgetDisplay.css";
 
 const BudgetDisplay = ({ maxAmount, maxExcess }) => {
   if (!maxAmount) {

@@ -26,7 +26,7 @@ function BudgetForm({ onSubmit }) {
             <div className="budget-form">
                 <h4>Create your budget</h4>
                 <div className="search-bar">
-                    <label htmlFor="salary">Your salary:</label>
+                    <label id="salary">Your salary:</label>
                     <input
                     onChange={handleChange}
                     min="0"
@@ -38,7 +38,7 @@ function BudgetForm({ onSubmit }) {
                 </div>
 
                 <div className="search-bar">
-                    <label htmlFor="savings">Your savings:</label>
+                    <label id="savings">Your savings:</label>
                     <input
                     onChange={handleChange}
                     min="0"
@@ -50,7 +50,7 @@ function BudgetForm({ onSubmit }) {
                 </div>
 
                 <div className="search-bar">
-                    <label htmlFor="outgoings">Monthly outgoings:</label>
+                    <label id="outgoings">Outgoings p/m:</label>
                     <input
                     onChange={handleChange}
                     min="0"
@@ -62,7 +62,7 @@ function BudgetForm({ onSubmit }) {
                 </div>
 
                 <div className="search-bar">
-                  <label htmlFor="holiday">Holiday Cost:</label>
+                  <label id="holiday">Holiday Cost:</label>
                   <input
                   onChange={handleChange}
                   min="0"
@@ -73,7 +73,7 @@ function BudgetForm({ onSubmit }) {
                   value={budgetData.holiday} />
                 </div>
 
-                <input onClick={handleSubmit} type="submit" value="submit" />
+                <input id="submit" onClick={handleSubmit} type="submit" value="Submit" />
                     
              </div>
         </form>

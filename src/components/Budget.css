@@ -9,5 +9,46 @@
   margin: 5px;
  } 
 
+.search-bar {
+  height:30px;
+  
+}
+
+#savings {
+  width: 105px;
+  font-weight:500;
+}
+
+#salary {
+  width: 105px;
+  font-weight:500;
+}
+
+#outgoings {
+  width: 105px;
+  font-weight:500;
+}
+
+#holiday {
+  width: 105px;
+  font-weight:500;
+}
+
+.search-bar > input {
+  height: fit-content;
+  width:5em;
+  text-align: justify;
+}
+
+#submit {
+  border: 2px solid rgb(248, 157, 0);
+  background-color: rgb(241, 87, 4);
+  color:rgb(248, 157, 0);
+  text-align: justify;
+  font-weight:bolder
+ }
+
+
+
 
 

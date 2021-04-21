@@ -30,9 +30,11 @@
 
 .bm-menu {
     background:rgb(241, 87, 4);
+    /* text-align: center;
+    align-content: center; */
     padding: 2.5em 1.5em 0;
-    font-size: 1.15em;
-    color: sandybrown;
+    font-size: 15px;
+    color: rgb(248, 157, 0);
 }
   
   
