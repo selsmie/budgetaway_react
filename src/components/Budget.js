@@ -7,7 +7,6 @@ function BudgetForm({ onSubmit }) {
     salary: '',
     savings: '',
     outgoings: '',
-    holiday: ''
   });
 
   const handleChange = (event) => {
@@ -16,22 +15,13 @@ function BudgetForm({ onSubmit }) {
     setBudgetData(newState);
   }
 
-  const calculateBudget = () => {
-    const monthlySalary = budgetData.salary / 12;
-    const money_needed = budgetData.holiday - budgetData.savings;
-    const excess = monthlySalary - budgetData.outgoings;
-    const departureMonths = money_needed/excess;
-
-    return "If you save £" + {excess} + " per month, you can go on holiday in " + {departureMonths} + " months.";
-
-  }
-
   const handleSubmit = (event) => {
     event.preventDefault();
-    onSubmit();
+    onSubmit(budgetData);
   }
 
     return(
+      <>
         <form>
             <div className="budget-form">
                 <h4>Create your budget</h4>
@@ -87,6 +77,8 @@ function BudgetForm({ onSubmit }) {
                     
              </div>
         </form>
+      </>
     )
+    
 }
 export default BudgetForm;
