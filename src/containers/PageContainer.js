@@ -78,9 +78,9 @@ const PageContainer = () => {
         setAllRegions(Array.from(set))
     }
 
-    useEffect(() => {
-        getAllRegions()
-    })
+    // useEffect(() => {
+    //     getAllRegions()
+    // })
     
     // iterate through all countries and save each country to the db
     // also populate allLanguages and allRegions
