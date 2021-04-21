@@ -24,6 +24,7 @@ const PageContainer = () => {
     const [selectedCountryId, setSelectedCountryId] = useState("");
     const [selectedCountry, setSelectedCountry] = useState("");
     const [departureAirport, setDepartureAirport] = useState("");
+    const [destinationAirport, setDestinationAirport] = useState("");
     // const [selectedFlight, setSelectedFlight] = useState("");
 
     // const filterEntryArray = (array) => {
@@ -129,6 +130,10 @@ const PageContainer = () => {
         setSelectedCountryId(submitted)
     }
 
+    // const selectDestinationAirport = submitted => {
+    //     setDestinationAirportId(submitted)
+    // }
+
     const luckyDip = () => {
         let randomValue = Math.floor(Math.random() * allFilteredCountries.length)
         let randomCountry = allFilteredCountries[randomValue]
@@ -140,8 +145,9 @@ const PageContainer = () => {
         getSelectedCountry()
     })
 
-    const searchFlights = (departureAirport) => {
-        // setDepartureAirport(departureAirport)
+    const searchFlights = (departureAirport, destinationAirport) => {
+        setDepartureAirport(departureAirport)
+        setDestinationAirport(destinationAirport)
     }
 
     const selectLanguage = submitted => {
@@ -154,7 +160,7 @@ const PageContainer = () => {
                 <HeaderAndCountryFilter countries={allFilteredCountries} selectedCountry={selectedCountry} onCountrySelect={selectCountry} luckyDip={luckyDip} languages={allLanguages} onLanguageChange={selectLanguage}/>
                 <Switch>
                     <Route exact path="/">
-                        <CountryContainer selectedCountry={selectedCountry} onCountrySelect={selectCountry}/>
+                        <CountryContainer selectedCountry={selectedCountry} onSearchSubmit={searchFlights}/>
                     </Route>
                     <Route path="/wishlist" component={Wishlist}/>
                     <Route path="/about" component={About}/>
