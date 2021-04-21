@@ -42,20 +42,26 @@ const HeaderAndCountryFilter = ({countries, onCountrySelect, luckyDip, languages
             </div>
 
             <div className="search-bar">
-                    <select name="lanugages" id="languages" onChange={handleLanguageSelect}>
+                    <select className="languages" name="lanugages" id="languages" onChange={handleLanguageSelect}>
                         <option value="disabled">Select Language</option>
                         {displayEnglish}
                         {displayLanguages}
                     </select>
-                    <select name="regions" id="regions">
+                    <select className="regions" name="regions" id="regions">
                         <option value="disabled">Select Region</option>
                     </select>
-                <CountryList countries={countries} onCountrySelect={onCountrySelect}/> 
+                    <div className="nations">
+                    <CountryList countries={countries} onCountrySelect={onCountrySelect}/>
+                    </div>
+            </div>
 
                     <button className="lucky-dip" onClick={handleLuckyDip}>
                         <option countries={countries}>Lucky Dip</option>
                     </button>
-            </div>    
+
+                    <div class="slidecontainer">
+                    <input type="range" min="1" max="100" value="50" class="slider" id="myRange"/>
+                    </div>
         </header>
     )
 }
