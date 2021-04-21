@@ -5,9 +5,9 @@ import {BrowserRouter as Router, Route, Switch} from "react-router-dom"
 import About from '../components/About'
 import Wishlist from '../components/Wishlist'
 import {addCountries, getCountriesWithLanguageAndRegion, getCountriesWithLanguage, getCountriesWithRegion, getAllLanguages, getAllCountries} from "../services/DataServices"
-// import {flight_key} from "../config"
+import {flight_key} from "../config"
 import countries from "../data/countries"
-import airports from "../data/airports"
+import airports from "../data/airportscode"
 
 
 const PageContainer = () => {
@@ -62,35 +62,37 @@ const PageContainer = () => {
     //             .then(data => data.data.map((airport) => {
     //                 return {
     //                     airport: airport.airport_name,
-    //                     country: airport.country_name
+    //                     country: airport.country_name,
+    //                     iata: airport.iata_code
     //                 }
     //             }))
     //         )
     //     }
     //     Promise.all(testArray)
     //     .then(data => console.log(JSON.stringify(data.flat())))
+    // }, [])
 
-    const getAllRegions = () => {
-        const set = new Set(allFilteredCountries.map((country) => {
-            return country.region
-        }))
-        setAllRegions(Array.from(set))
-    }
+    // const getAllRegions = () => {
+    //     const set = new Set(allFilteredCountries.map((country) => {
+    //         return country.region
+    //     }))
+    //     setAllRegions(Array.from(set))
+    // }
 
     useEffect(() => {
-        getAllRegions()
-    })
+        setAllRegions(Array.from(new Set(allFilteredCountries.map((country) => country.region))))
+    }, [allFilteredCountries, selectedLanguage])
     
     // iterate through all countries and save each country to the db
     // also populate allLanguages and allRegions
     useEffect(() => {
-        // if (allCountries.length > 0){
-            // addCountries(rawCountries)
+        if (rawCountries.length > 0){
+            addCountries(rawCountries)
             
-            getAllLanguages()
-                .then(data => setAllLanguages(data))
-        // }
-    }, [])
+            // getAllLanguages()
+            //     .then(data => setAllLanguages(data))
+        }
+    }, [rawCountries])
 
     //get filtered countries list depending on which filter is used
     useEffect(() => {
@@ -131,6 +133,7 @@ const PageContainer = () => {
 
     const getSelectedCountry = () => {
         setSelectedCountry(findCountry(selectedCountryId, allFilteredCountries))
+        // asdlfkjasdl;kfjas
     }
 
     const selectCountry = submitted => {
@@ -153,6 +156,11 @@ const PageContainer = () => {
     }
 
     const selectLanguage = submitted => {
+        setAllFilteredCountries([])
+        setAllRegions([])
+        setSelectedRegion("")
+        setSelectedCountry("")
+        setSelectedCountryId("")
         setSelectedLanguage(submitted)
     }
 
