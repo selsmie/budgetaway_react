@@ -69,40 +69,6 @@ const PageContainer = () => {
     //     }
     //     Promise.all(testArray)
     //     .then(data => console.log(JSON.stringify(data.flat())))
-    //         // .then(data => {
-    //         //     setRawAirports(data.data.map((airport) => {
-    //         //         return {
-    //         //             airport: airport.airport_name,
-    //         //             country: airport.country_name
-    //         //         }
-    //         //     }))
-    //         // })
-    //         // .then(console.log(rawAirports))
-        
-    //     // setRawAirports(testArray.map((airport) => {
-    //     //     return {
-    //     //         airport: airport.airport_name,
-    //     //         country: airport.country_name
-    //     //     }
-    //     // }))
-    //     // console.log(rawAirports)
-        
-    // }, [])
-
-
-    // useEffect(() => {
-    //     if (rawAirports.length > 0 && rawCountries.length > 0) {
-    //         const countries = [...rawCountries]
-    //         rawAirports.forEach((airport) => {
-    //             const index = countries.findIndex((country) => country.name === airport.country)
-    //             if (index !== -1) {
-    //                 countries[index].airports.push(airport.airport)
-    //             }
-    //         })
-    //         setAllCountries(countries)
-    //     }
-    // }, [rawAirports, rawCountries])
-
     
     // iterate through all countries and save each country to the db
     // also populate allLanguages and allRegions

@@ -17,6 +17,8 @@ const SelectedCountryDetail = ({selectedCountry, onSearchSubmit}) => {
             return "$$$$"
         } else if (selectedCountry.region.match("Southern Asia")){
             return "$"
+        } else if (selectedCountry.region.match("Central Asia")){
+            return "$$$"
         } else if (selectedCountry.region.match("Western Asia")){
             return "$$$$"    
         } else if (selectedCountry.region.match("Northern America")){
