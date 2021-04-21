@@ -3,35 +3,46 @@ import {useState} from "react"
 const FlightsFilterAndButton = ({selectedCountry, onSearchSubmit}) => {
 
     const [departureAirport, setDepartureAirport] = useState("")
+    const [destinationAirport, setDestinationAirport] = useState("")
     
     const airports = selectedCountry.airports.map((airport, index) => {
-        // return <option value={airport.airport_name} key={index}>{airport.airport_name}</option>
-        return <option value={airport} key={index}>{airport.name}</option>
+        return <option value={airport.id} key={index}>{airport.name}</option>
     })
 
     const defaultAirports = ["Edinburgh", "Glasgow", "Heathrow", "Stansted", "Gatwick", "Luton"]
 
-    const defaults = defaultAirports.forEach((airport, index) => {
-        // return <option value={airport} key={index}>{airport}</option>
+    const defaults = defaultAirports.map((airport, index) => {
+        return <option value={airport} key={index}>{airport}</option>
     })
 
     const handleDepAirportChange = (evt) => {
         setDepartureAirport(evt.target.value)
     }
+
+    const handleDestAirportChange = (evt) => {
+        setDestinationAirport(evt.target.value)
+    }
     
-    const onSearchFlights = (evt) => {
+    const handleSearchSubmit = (evt) => {
         evt.preventDefault()
-        onSearchSubmit(departureAirport)
+        // console.log(departureAirport)
+        // console.log(destinationAirport)
+        // console.log(selectedCountry);
+        onSearchSubmit(departureAirport, destinationAirport)
         setDepartureAirport("")
+        setDestinationAirport("")
     }
 
     return (
         <div>
-            <form onSubmit={onSearchFlights}>
+            <form onSubmit={handleSearchSubmit}>
                 <select name="departure-airport" id="departure-airport" onChange={handleDepAirportChange}>
                     <option value="disabled">Departure Airport</option>
-                    {airports}
                     {defaults}
+                </select>
+                <select name="dest-airport" id="dest-airport" onChange={handleDestAirportChange}>
+                    <option value="disabled">Destination Airport</option>
+                    {airports}
                 </select>
                 <input type="submit" value="Search Flights"/>
             </form>

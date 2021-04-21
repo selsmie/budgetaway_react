@@ -24,6 +24,7 @@ const PageContainer = () => {
     const [selectedCountryId, setSelectedCountryId] = useState("");
     const [selectedCountry, setSelectedCountry] = useState("");
     const [departureAirport, setDepartureAirport] = useState("");
+    const [destinationAirport, setDestinationAirport] = useState("");
     // const [selectedFlight, setSelectedFlight] = useState("");
 
     // const filterEntryArray = (array) => {
@@ -82,17 +83,18 @@ const PageContainer = () => {
     useEffect(() => {
         setAllRegions(Array.from(new Set(allFilteredCountries.map((country) => country.region))))
     }, [allFilteredCountries, selectedLanguage])
+
     
     // iterate through all countries and save each country to the db
     // also populate allLanguages and allRegions
     useEffect(() => {
-        if (rawCountries.length > 0){
-            addCountries(rawCountries)
+        // if (rawCountries.length > 0){
+            // addCountries(rawCountries)
             
-            // getAllLanguages()
-            //     .then(data => setAllLanguages(data))
-        }
-    }, [rawCountries])
+            getAllLanguages()
+                .then(data => setAllLanguages(data))
+        // }
+    })
 
     //get filtered countries list depending on which filter is used
     useEffect(() => {
@@ -140,6 +142,10 @@ const PageContainer = () => {
         setSelectedCountryId(submitted)
     }
 
+    // const selectDestinationAirport = submitted => {
+    //     setDestinationAirportId(submitted)
+    // }
+
     const luckyDip = () => {
         let randomValue = Math.floor(Math.random() * allFilteredCountries.length)
         let randomCountry = allFilteredCountries[randomValue]
@@ -151,8 +157,9 @@ const PageContainer = () => {
         getSelectedCountry()
     })
 
-    const searchFlights = (departureAirport) => {
-        // setDepartureAirport(departureAirport)
+    const searchFlights = (departureAirport, destinationAirport) => {
+        setDepartureAirport(departureAirport)
+        setDestinationAirport(destinationAirport)
     }
 
     const selectLanguage = submitted => {
@@ -175,7 +182,7 @@ const PageContainer = () => {
                 <HeaderAndCountryFilter countries={allFilteredCountries} selectedCountry={selectedCountry} onCountrySelect={selectCountry} luckyDip={luckyDip} languages={allLanguages} regions={allRegions} onLanguageChange={selectLanguage} onRegionChange={selectRegion}/>
                 <Switch>
                     <Route exact path="/">
-                        <CountryContainer selectedCountry={selectedCountry} onCountrySelect={selectCountry}/>
+                        <CountryContainer selectedCountry={selectedCountry} onSearchSubmit={searchFlights}/>
                     </Route>
                     <Route path="/wishlist" component={Wishlist}/>
                     <Route path="/about" component={About}/>
