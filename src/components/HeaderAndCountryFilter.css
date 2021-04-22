@@ -15,7 +15,7 @@
 
 .search-bar {
     display: grid;
-    grid-template-columns: 1fr 1fr 2fr;
+    grid-template-columns: 1fr 1fr 2fr 1fr;
     justify-items: center;
 }
 
@@ -50,9 +50,9 @@
     border: 4px double  rgb(241, 87, 4);
     color: black;
     text-align: center;
-    font-size: 20px;
+    font-size: 15px;
     padding: 20px;
-    width: 250px;
+    width: 200px;
     -webkit-transition: all 0.5s;
     -moz-transition: all 0.5s;
     -o-transition: all 0.5s;
@@ -68,9 +68,9 @@
     border: 4px double  rgb(241, 87, 4);
     color: black;
     text-align: center;
-    font-size: 20px;
+    font-size: 15px;
     padding: 20px;
-    width: 250px;
+    width: 200px;
     -webkit-transition: all 0.5s;
     -moz-transition: all 0.5s;
     -o-transition: all 0.5s;
@@ -86,9 +86,9 @@
     border: 4px double  rgb(241, 87, 4);
     color: black;
     text-align: center;
-    font-size: 20px;
+    font-size: 15px;
     padding: 20px;
-    width: 400px;
+    width: 200px;
     -webkit-transition: all 0.5s;
     -moz-transition: all 0.5s;
     -o-transition: all 0.5s;

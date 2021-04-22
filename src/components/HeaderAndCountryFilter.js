@@ -52,15 +52,13 @@ const HeaderAndCountryFilter = ({countries, onCountrySelect, luckyDip, languages
                     <div className="nations">
                     <CountryList countries={countries} onCountrySelect={onCountrySelect}/>
                     </div>
-            </div>
 
                     <button className="lucky-dip" onClick={handleLuckyDip}>
                         <option countries={countries}>Lucky Dip</option>
                     </button>
+            </div>
 
-                    <div className="slidecontainer">
-                    {/* <input type="range" min="1" max="100" value="50" className="slider" id="myRange"/> */}
-                    </div>
+
         </header>
     )
 }

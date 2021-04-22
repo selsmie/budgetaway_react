@@ -1,6 +1,11 @@
 import "./Wishlist.css"
 
-const Wishlist = ({wishlist}) => {
+const Wishlist = ({wishlist, onRemoveFromWishlist}) => {
+
+const handleRemoveFromWishlist = (evt) => {
+    evt.preventDefault()
+    onRemoveFromWishlist(evt.target.value)
+}
    
     const displayable = (wishlist) ? wishlist.map((item, index) => {
         return  <div key={index} className="item-container">
@@ -11,7 +16,7 @@ const Wishlist = ({wishlist}) => {
                         <p>Duration: {item.duration}</p>
                         <p>Price: £{item.price}</p>
                     {/* </div> */}
-                    <input type="submit" value="Remove from List" className="wishlist-button"/>
+                    <button className="wishlist-button" onClick={handleRemoveFromWishlist} value={item.id}>Remove from wishlist</button>
                 </div>
     }): "You Have No Journeys Saved."
 

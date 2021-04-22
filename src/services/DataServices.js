@@ -1,6 +1,6 @@
 const countryURL = 'http://localhost:8080/countries';
 const languageURL = 'http://localhost:8080/languages';
-const wishlistURL = "http://localhost:8080/wishlists"
+const wishlistURL = "http://localhost:8080/wishlists/"
 
 const addCountries = (countries) =>{
     return fetch(countryURL, {
@@ -53,7 +53,7 @@ const getWishlist = () => {
     .then(res => res.json())
 }
 
-const removeFromWishlist = (id) => {
+const removeFromWishlistDB = (id) => {
     return fetch(wishlistURL + id, {
         method:'DELETE'
     })
@@ -70,5 +70,6 @@ const addToWishlistDB = (flight) => {
     .then(res => res.json())
 }
 
-export {addCountries, getAllCountries, getCountriesWithLanguageAndRegion, getCountriesWithLanguage, getCountriesWithRegion, getAllLanguages, getAllRegions, getUKDetails, getWishlist, removeFromWishlist, addToWishlistDB}
+
+export {addCountries, getAllCountries, getCountriesWithLanguageAndRegion, getCountriesWithLanguage, getCountriesWithRegion, getAllLanguages, getAllRegions, getUKDetails, getWishlist, removeFromWishlistDB, addToWishlistDB}
 

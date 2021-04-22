@@ -5,7 +5,7 @@ import FlightsContainer from './FlightsContainer';
 import {BrowserRouter as Router, Route, Switch} from "react-router-dom"
 import About from '../components/About'
 import Wishlist from '../components/Wishlist'
-import {addCountries, getCountriesWithLanguageAndRegion, getCountriesWithLanguage, getCountriesWithRegion, getAllLanguages, getAllCountries, getUKDetails, getWishlist, removeFromWishlist, addToWishlistDB} from "../services/DataServices"
+import {addCountries, getCountriesWithLanguageAndRegion, getCountriesWithLanguage, getCountriesWithRegion, getAllLanguages, getAllCountries, getUKDetails, getWishlist, removeFromWishlistDB, addToWishlistDB} from "../services/DataServices"
 import {flight_key} from "../config"
 import countries from "../data/countries"
 import airports from "../data/airportscode"
@@ -216,6 +216,11 @@ const PageContainer = () => {
         setWishlist([...wishlist, selectedFlight])
     }
 
+    const removeFromWishlist = (id) => {
+        removeFromWishlistDB(id)
+        setWishlist([...wishlist, selectedFlight])
+    }
+
     return (
         <Router>
             <>
@@ -226,7 +231,7 @@ const PageContainer = () => {
                         <FlightsContainer flight={selectedFlight} onAddToWishlist={addToWishlist}/>
                     </Route>
                     <Route path="/wishlist" > 
-                        <Wishlist wishlist = {wishlist}/>
+                        <Wishlist wishlist = {wishlist} onRemoveFromWishlist={removeFromWishlist}/>
                     </Route>
                     <Route path="/about" component={About}/>
                 </Switch>
