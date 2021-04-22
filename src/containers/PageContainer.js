@@ -23,7 +23,7 @@ const PageContainer = () => {
     const [selectedRegion, setSelectedRegion] = useState("");
     const [selectedCountryId, setSelectedCountryId] = useState("");
     const [selectedCountry, setSelectedCountry] = useState("");
-    const [selectedFlight, setSelectedFlight] = useState("");
+    const [selectedFlight, setSelectedFlight] = useState([]);
     const [ukAirports, setUKAirports] = useState([])
 
     // const filterEntryArray = (array) => {
@@ -152,25 +152,43 @@ const PageContainer = () => {
     })
 
     const durationCalculation = (depTime, arrTime) => {
-        const depHours = 
-        depTime.getHours()
-        arrHours = arrTime.getHours()
+        let depHoursSplit = depTime.split("")
+        let depHours = parseInt(depHoursSplit.slice(11, 13).join(""))
+
+        let arrHoursSplit = arrTime.split("")
+        let arrHours = parseInt(arrHoursSplit.slice(11, 13).join(""))
+
+        console.log("dep: ", depHours, "arr: ", arrHours)
+
+        if (arrHours - depHours > 0) {
+            return arrHours - depHours
+        } else {
+            arrHours += 24
+            return arrHours - depHours
+        }
+    }
+
+    const priceCalculation = (time) => {
+        return time * 100
     }
 
     const searchFlights = (departureAirport, destinationAirport) => {
-fetch ()// http://api.aviationstack.com/v1/airflightccess_key=${flight_key}&offdep_iata=${departureAirport}&arr_iata=${destinationAirport}&limit=1
+        fetch(`http://api.aviationstack.com/v1/flights?access_key=${flight_key}&dep_iata=${departureAirport}&arr_iata=${destinationAirport}&limit=1`)
         .then(res => res.json())
-        .then(data => {
+        .then(data => 
+            // setSelectedFlight(data)
+            {
             setSelectedFlight(
                 {
                     name: selectedCountry.name,
-                    depAirport: data.data.departure.airport,
-                    arrAirport: data.data.arrival.airport,
-                    duration: durationCalculation(),
-                    price: priceCalculation(duration)
+                    depAirport: data.data[0].departure.airport,
+                    arrAirport: data.data[0].arrival.airport,
+                    duration: durationCalculation(data.data[0].departure.scheduled, data.data[0].arrival.scheduled),
+                    price: priceCalculation(durationCalculation(data.data[0].departure.scheduled, data.data[0].arrival.scheduled))
                 }
             )
-        })
+        }
+        )
     }
 
     const selectLanguage = submitted => {
