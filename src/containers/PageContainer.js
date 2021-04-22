@@ -1,10 +1,11 @@
 import { useState, useEffect } from 'react'
 import HeaderAndCountryFilter from '../components/HeaderAndCountryFilter'
 import CountryContainer from './CountryContainer'
+import FlightsContainer from './FlightsContainer';
 import {BrowserRouter as Router, Route, Switch} from "react-router-dom"
 import About from '../components/About'
 import Wishlist from '../components/Wishlist'
-import {addCountries, getCountriesWithLanguageAndRegion, getCountriesWithLanguage, getCountriesWithRegion, getAllLanguages, getAllCountries} from "../services/DataServices"
+import {addCountries, getCountriesWithLanguageAndRegion, getCountriesWithLanguage, getCountriesWithRegion, getAllLanguages, getAllCountries, getUKDetails} from "../services/DataServices"
 import {flight_key} from "../config"
 import countries from "../data/countries"
 import airports from "../data/airportscode"
@@ -26,6 +27,7 @@ const PageContainer = () => {
     const [departureAirport, setDepartureAirport] = useState("");
     const [destinationAirport, setDestinationAirport] = useState("");
     // const [selectedFlight, setSelectedFlight] = useState("");
+    const [ukAirports, setUKAirports] = useState([])
 
     // const filterEntryArray = (array) => {
     //     let newArray = []
@@ -176,6 +178,11 @@ const PageContainer = () => {
         setSelectedRegion(submitted)
     }
 
+    useEffect(() => {
+        getUKDetails()
+            .then(data => setUKAirports(data.airports))
+    }, [])
+
     return (
         <Router>
             <>
@@ -183,6 +190,7 @@ const PageContainer = () => {
                 <Switch>
                     <Route exact path="/">
                         <CountryContainer selectedCountry={selectedCountry} onSearchSubmit={searchFlights}/>
+                        <FlightsContainer />
                     </Route>
                     <Route path="/wishlist" component={Wishlist}/>
                     <Route path="/about" component={About}/>

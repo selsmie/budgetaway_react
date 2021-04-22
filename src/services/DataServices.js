@@ -44,4 +44,9 @@ const getAllRegions = () => {
     .then(res => res.json())
 }
 
-export {addCountries, getAllCountries, getCountriesWithLanguageAndRegion, getCountriesWithLanguage, getCountriesWithRegion, getAllLanguages, getAllRegions}
+const getUKDetails = () => {
+    return fetch(countryURL + "/239")
+    .then(res => res.json())
+}
+
+export {addCountries, getAllCountries, getCountriesWithLanguageAndRegion, getCountriesWithLanguage, getCountriesWithRegion, getAllLanguages, getAllRegions, getUKDetails}
