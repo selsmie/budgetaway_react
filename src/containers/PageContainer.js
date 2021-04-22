@@ -12,6 +12,7 @@ import airports from "../data/airportscode"
 
 const PageContainer = () => {
    
+    //Comment in to perform fetches from external APIs
     // const [rawCountries, setRawCountries] = useState([]);
     // const [rawAirports, setRawAirports] = useState([]);
     const [allCountries, setAllCountries] = useState([]);
@@ -26,6 +27,7 @@ const PageContainer = () => {
     const [ukAirports, setUKAirports] = useState([])
     const [wishlist, setWishlist] = useState("")
 
+    //Comment in to perform fetches from external APIs
     // const filterEntryArray = (array) => {
     //     let newArray = []
     //     array.map((entry) => {
@@ -83,7 +85,7 @@ const PageContainer = () => {
         setAllRegions(Array.from(new Set(allFilteredCountries.map((country) => country.region))))
     }, [allFilteredCountries, selectedLanguage])
 
-    // iterate through all countries and save each country to the db
+    // comment in to add files to db
     // useEffect(() => {
     //     if (rawCountries.length > 0){
     //         addCountries(rawCountries)

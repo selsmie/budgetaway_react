@@ -29,8 +29,7 @@
 }
 
 .bm-menu {
-    background:rgb(241, 87, 4);
-
+    background-image: linear-gradient( rgb(241, 90, 36), rgb(247, 147, 30));
     padding: 2.5em 1.5em 0;
     font-size: 15px;
     color: cornsilk;
