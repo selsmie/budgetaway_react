@@ -5,11 +5,7 @@ import FlightContainer from './FlightContainer';
 import {BrowserRouter as Router, Route, Switch} from "react-router-dom"
 import About from '../components/About'
 import Wishlist from '../components/Wishlist'
-<<<<<<< HEAD
 import {addCountries, getCountriesWithLanguageAndRegion, getCountriesWithLanguage, getCountriesWithRegion, getAllLanguages, getAllCountries, getUKDetails, getWishlist, removeFromWishlist, addToWishlistDB} from "../services/DataServices"
-=======
-import {addCountries, getCountriesWithLanguageAndRegion, getCountriesWithLanguage, getCountriesWithRegion, getAllLanguages, getAllCountries, getUKDetails, addToWishlistDB} from "../services/DataServices"
->>>>>>> develop
 import {flight_key} from "../config"
 import countries from "../data/countries"
 import airports from "../data/airportscode"
