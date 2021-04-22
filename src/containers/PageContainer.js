@@ -1,11 +1,15 @@
 import { useState, useEffect } from 'react'
 import HeaderAndCountryFilter from '../components/HeaderAndCountryFilter'
 import CountryContainer from './CountryContainer'
-import FlightsContainer from './FlightsContainer';
+import FlightContainer from './FlightContainer';
 import {BrowserRouter as Router, Route, Switch} from "react-router-dom"
 import About from '../components/About'
 import Wishlist from '../components/Wishlist'
+<<<<<<< HEAD
 import {addCountries, getCountriesWithLanguageAndRegion, getCountriesWithLanguage, getCountriesWithRegion, getAllLanguages, getAllCountries, getUKDetails, getWishlist, removeFromWishlist, addToWishlistDB} from "../services/DataServices"
+=======
+import {addCountries, getCountriesWithLanguageAndRegion, getCountriesWithLanguage, getCountriesWithRegion, getAllLanguages, getAllCountries, getUKDetails, addToWishlistDB} from "../services/DataServices"
+>>>>>>> develop
 import {flight_key} from "../config"
 import countries from "../data/countries"
 import airports from "../data/airportscode"
@@ -188,6 +192,10 @@ const PageContainer = () => {
         )
     }
 
+    const addToWishlist = () => {
+        addToWishlistDB(selectedFlight)
+    }
+
     const selectLanguage = submitted => {
         setAllFilteredCountries([])
         setAllRegions([])
@@ -223,10 +231,14 @@ const PageContainer = () => {
                 <Switch>
                     <Route exact path="/">
                         <CountryContainer selectedCountry={selectedCountry} onSearchSubmit={searchFlights} ukAirports={ukAirports}/>
+<<<<<<< HEAD
                         <FlightsContainer flight={selectedFlight} onAddToWishlist={addToWishlist}/>
                     </Route>
                     <Route path="/wishlist" > 
                         <Wishlist wishlist = {wishlist}/>
+=======
+                        <FlightContainer flight={selectedFlight} onAddToWishlist={addToWishlist}/>
+>>>>>>> develop
                     </Route>
                     <Route path="/about" component={About}/>
                 </Switch>
