@@ -158,8 +158,6 @@ const PageContainer = () => {
         let arrHoursSplit = arrTime.split("")
         let arrHours = parseInt(arrHoursSplit.slice(11, 13).join(""))
 
-        console.log("dep: ", depHours, "arr: ", arrHours)
-
         if (arrHours - depHours > 0) {
             return arrHours - depHours
         } else {
