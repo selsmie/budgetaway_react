@@ -1,15 +1,20 @@
 import {useState} from "react"
+import "./FlightsFilterAndButton.css"
 
 const FlightsFilterAndButton = ({selectedCountry, onSearchSubmit, ukAirports}) => {
 
     const [departureAirport, setDepartureAirport] = useState("")
     const [destinationAirport, setDestinationAirport] = useState("")
 
-    const defaults = ukAirports.map((airport, index) => {
+    const defaults = ukAirports
+        .sort((a, b) => a.name.localeCompare(b.name))
+        .map((airport, index) => {
         return <option value={airport.iata} key={index}>{airport.name}</option>
     })
 
-    const airports = selectedCountry.airports.map((airport, index) => {
+    const airports = selectedCountry.airports
+        .sort((a, b) => a.name.localeCompare(b.name))
+        .map((airport, index) => {
         return <option value={airport.iata} key={index}>{airport.name}</option>
     })
 
@@ -32,7 +37,7 @@ const FlightsFilterAndButton = ({selectedCountry, onSearchSubmit, ukAirports}) =
     }
 
     return (
-        <div>
+        <div className="airport-selection">
             <form onSubmit={handleSearchSubmit}>
                 <select name="departure-airport" id="departure-airport" onChange={handleDepAirportChange}>
                     <option value="disabled">Departure Airport</option>

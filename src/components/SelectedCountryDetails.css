@@ -11,13 +11,16 @@
     padding: 20px;
     margin: 30px;
     background-color: rgba(99, 164, 167, 0.8);
+    color: cornsilk;
+    font-weight: bolder;
 }
 
 #flag {
-    height: 240px;
-    width: 350px;
+    height: 200px;
+    width: 300px;
     grid-area: flag;
-    
+    overflow: hidden;
+    border-radius: 12px;
 }
 
 #country-name{
@@ -46,4 +49,13 @@
 #afford{
     grid-area: afford;
 }
+
+.details{
+    margin: 0px 20px;
+}
+
+.details > p {
+    margin: 5px 0px;
+}
+
 

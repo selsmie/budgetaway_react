@@ -157,12 +157,14 @@ const PageContainer = () => {
 
         let arrHoursSplit = arrTime.split("")
         let arrHours = parseInt(arrHoursSplit.slice(11, 13).join(""))
+        // console.log(selectedCountry.timezone)
+        let adjustedArrHours = arrHours - selectedCountry.timezone
 
-        if (arrHours - depHours > 0) {
-            return arrHours - depHours
+        if (adjustedArrHours - depHours > 0) {
+            return adjustedArrHours - depHours
         } else {
-            arrHours += 24
-            return arrHours - depHours
+            adjustedArrHours += 24
+            return adjustedArrHours - depHours
         }
     }
 

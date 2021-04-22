@@ -1,0 +1,55 @@
+.flight {
+    display: grid;
+    grid-template-columns: 1fr 2fr 1fr;
+    grid-template-areas: 
+    "name name name"
+    "flag details map";
+    border: 2px cornsilk solid;
+    border-radius: 12px;
+    justify-items: center;
+    align-items: center;
+    padding: 20px;
+    margin: 30px;
+    background-color: rgba(99, 164, 167, 0.8);
+    color: cornsilk
+}
+#flight-details{
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    grid-template-areas: "dep dura"
+    "arr price";
+    column-gap: 50px;
+}
+
+#departure{
+    grid-area: dep;
+}
+
+#arrival{
+    grid-area: arr;
+}
+
+#duration{
+    grid-area: dura;
+}
+
+#price{
+    grid-area: price;
+}
+
+.flight-button{
+    background-color: rgb(138, 0, 0);
+    color: cornsilk;
+    border: 2px outset rgb(103, 0, 0);
+    border-radius:12px;
+    height: 100px;
+    width: 100px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.flight-button:hover{
+    font-size: 16px;
+    box-shadow: 0 0 2px 2px;
+}
