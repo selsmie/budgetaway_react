@@ -13,12 +13,11 @@
     padding: 0px;
 }
 
-.search-bar {
+.search-bar-selector{
     display: grid;
     grid-template-columns: 1fr 1fr 2fr 1fr;
     justify-items: center;
     height: fit-content;
-    margin-bottom:100px;
 }
 
 

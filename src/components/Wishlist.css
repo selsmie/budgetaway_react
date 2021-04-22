@@ -1,7 +1,6 @@
 .wishlist {
     border: 1px solid black;
     margin: 20px 10%;
-    padding: 5px;
     text-align: justify;
     border: 2px cornsilk solid;
     border-radius: 12px;
@@ -18,7 +17,7 @@
     border-radius: 12px;
     text-align: center;
     padding: 10px;
-    margin:5px;
+    margin:10px;
     justify-content: center;
     /* height: 210px; */
 }

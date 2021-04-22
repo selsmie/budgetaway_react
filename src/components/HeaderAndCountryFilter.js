@@ -38,7 +38,7 @@ const HeaderAndCountryFilter = ({countries, onCountrySelect, luckyDip, languages
                 </div>
             </div>
 
-            <div className="search-bar">
+            <div className="search-bar-selector">
                     <select className="languages" name="lanugages" id="languages" onChange={handleLanguageSelect}>
                         <option value="disabled">Select Language</option>
                         {displayLanguages}

@@ -53,10 +53,11 @@ const SelectedCountryDetail = ({selectedCountry, onSearchSubmit, ukAirports}) =>
         <img src={selectedCountry.flag} alt="flag" id="flag"/>
         <div className="details" >
             
-            <p id="afford">Estimate Cost: {affordability()}</p>
+            
             <p id="region">Region: {selectedCountry.region}</p>
-            <p className="listable">Currencies: {displayArray(selectedCountry.currencies).join(", ")}</p>
             <p className="listable">Languages: {displayArray(selectedCountry.languages).join(", ")}</p>
+            <p className="listable">Currencies: {displayArray(selectedCountry.currencies).join(", ")}</p>
+            <p id="afford">Average Holiday Cost: {affordability()}</p>
             <div id="detail-buttons">
                 <FlightsFilterAndButton selectedCountry={selectedCountry} onSearchSubmit={onSearchSubmit} ukAirports={ukAirports}/>
             </div>
