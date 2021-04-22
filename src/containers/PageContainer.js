@@ -174,7 +174,6 @@ const PageContainer = () => {
         fetch(`http://api.aviationstack.com/v1/flights?access_key=${flight_key}&dep_iata=${departureAirport}&arr_iata=${destinationAirport}&limit=1`)
         .then(res => res.json())
         .then(data => 
-            // setSelectedFlight(data)
             {
             setSelectedFlight(
                 {
