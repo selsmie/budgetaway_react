@@ -8,7 +8,7 @@ const BudgetDisplay = ({ maxAmount, maxExcess }) => {
 
   return (
     <>
-      <p>If you save {maxExcess} per month, you can go on holiday in {maxAmount} months.</p>
+      <p className="budget-display">If you save {maxExcess} per month, you can go on holiday in {maxAmount} months.</p>
     </>
   );
 };

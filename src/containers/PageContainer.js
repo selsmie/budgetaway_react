@@ -5,7 +5,7 @@ import FlightsContainer from './FlightsContainer';
 import {BrowserRouter as Router, Route, Switch} from "react-router-dom"
 import About from '../components/About'
 import Wishlist from '../components/Wishlist'
-import {addCountries, getCountriesWithLanguageAndRegion, getCountriesWithLanguage, getCountriesWithRegion, getAllLanguages, getAllCountries, getUKDetails} from "../services/DataServices"
+import {addCountries, getCountriesWithLanguageAndRegion, getCountriesWithLanguage, getCountriesWithRegion, getAllLanguages, getAllCountries, getUKDetails, getWishlist, removeFromWishlist} from "../services/DataServices"
 import {flight_key} from "../config"
 import countries from "../data/countries"
 import airports from "../data/airportscode"
@@ -25,6 +25,7 @@ const PageContainer = () => {
     const [selectedCountry, setSelectedCountry] = useState("");
     const [selectedFlight, setSelectedFlight] = useState([]);
     const [ukAirports, setUKAirports] = useState([])
+    const [wishlist, setWishlist] = useState("")
 
     // const filterEntryArray = (array) => {
     //     let newArray = []
@@ -206,6 +207,11 @@ const PageContainer = () => {
             .then(data => setUKAirports(data.airports))
     }, [])
 
+    useEffect(() => {
+        getWishlist()
+            .then(data => setWishlist(data))
+    }, [])
+
     return (
         <Router>
             <>
@@ -215,7 +221,9 @@ const PageContainer = () => {
                         <CountryContainer selectedCountry={selectedCountry} onSearchSubmit={searchFlights} ukAirports={ukAirports}/>
                         <FlightsContainer />
                     </Route>
-                    <Route path="/wishlist" component={Wishlist}/>
+                    <Route path="/wishlist" > 
+                        <Wishlist wishlist = {wishlist}/>
+                    </Route>
                     <Route path="/about" component={About}/>
                 </Switch>
             </>
