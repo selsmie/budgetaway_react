@@ -5,7 +5,7 @@ import FlightsContainer from './FlightsContainer';
 import {BrowserRouter as Router, Route, Switch} from "react-router-dom"
 import About from '../components/About'
 import Wishlist from '../components/Wishlist'
-import {addCountries, getCountriesWithLanguageAndRegion, getCountriesWithLanguage, getCountriesWithRegion, getAllLanguages, getAllCountries, getUKDetails, getWishlist, removeFromWishlist} from "../services/DataServices"
+import {addCountries, getCountriesWithLanguageAndRegion, getCountriesWithLanguage, getCountriesWithRegion, getAllLanguages, getAllCountries, getUKDetails, getWishlist, removeFromWishlist, addToWishlistDB} from "../services/DataServices"
 import {flight_key} from "../config"
 import countries from "../data/countries"
 import airports from "../data/airportscode"
@@ -212,6 +212,10 @@ const PageContainer = () => {
             .then(data => setWishlist(data))
     }, [])
 
+    const addToWishlist = () => {
+        addToWishlistDB(selectedFlight)
+    }
+
     return (
         <Router>
             <>
@@ -219,7 +223,7 @@ const PageContainer = () => {
                 <Switch>
                     <Route exact path="/">
                         <CountryContainer selectedCountry={selectedCountry} onSearchSubmit={searchFlights} ukAirports={ukAirports}/>
-                        <FlightsContainer />
+                        <FlightContainer flight={selectedFlight} onAddToWishlist={addToWishlist}/>
                     </Route>
                     <Route path="/wishlist" > 
                         <Wishlist wishlist = {wishlist}/>

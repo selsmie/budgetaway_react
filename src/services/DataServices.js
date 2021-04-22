@@ -61,4 +61,15 @@ const removeFromWishlist = (id) => {
     })
 }
 
-export {addCountries, getAllCountries, getCountriesWithLanguageAndRegion, getCountriesWithLanguage, getCountriesWithRegion, getAllLanguages, getAllRegions, getUKDetails, getWishlist, removeFromWishlist}
+const addToWishlistDB = (flight) => {
+    return fetch(wishlistURL, {
+        method: 'POST',
+        body: JSON.stringify(flight),
+        headers: {
+            'Content-Type': 'application/json'
+        }
+    })
+    .then(res => res.json())
+}
+
+export {addCountries, getAllCountries, getCountriesWithLanguageAndRegion, getCountriesWithLanguage, getCountriesWithRegion, getAllLanguages, getAllRegions, getUKDetails, getWishlist, removeFromWishlist, addToWishlistDB}
