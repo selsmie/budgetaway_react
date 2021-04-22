@@ -1,6 +1,6 @@
 const countryURL = 'http://localhost:8080/countries';
 const languageURL = 'http://localhost:8080/languages';
-
+const flightURL = 'http://localhost:8080/flights'
 
 const addCountries = (countries) =>{
     return fetch(countryURL, {
@@ -17,7 +17,6 @@ const getAllCountries = () => {
     return fetch(countryURL)
     .then(res => res.json())
 }
-    
 
 const getCountriesWithLanguageAndRegion = (searchLanguage, searchRegion) => {
     return fetch(countryURL + "?language=" + searchLanguage + "&region=" + searchRegion)
@@ -49,4 +48,15 @@ const getUKDetails = () => {
     .then(res => res.json())
 }
 
-export {addCountries, getAllCountries, getCountriesWithLanguageAndRegion, getCountriesWithLanguage, getCountriesWithRegion, getAllLanguages, getAllRegions, getUKDetails}
+const addToWishlistDB = (flight) => {
+    return fetch(flightURL, {
+        method: 'POST',
+        body: JSON.stringify(flight),
+        headers: {
+            'Content-Type': 'application/json'
+        }
+    })
+    .then(res => res.json())
+}
+
+export {addCountries, getAllCountries, getCountriesWithLanguageAndRegion, getCountriesWithLanguage, getCountriesWithRegion, getAllLanguages, getAllRegions, getUKDetails, addToWishlistDB}
