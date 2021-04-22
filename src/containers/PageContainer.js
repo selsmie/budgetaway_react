@@ -13,20 +13,17 @@ import airports from "../data/airportscode"
 
 const PageContainer = () => {
    
-    const [rawCountries, setRawCountries] = useState([]);
+    // const [rawCountries, setRawCountries] = useState([]);
     // const [rawAirports, setRawAirports] = useState([]);
     const [allCountries, setAllCountries] = useState([]);
     const [allLanguages, setAllLanguages] = useState([]);
     const [allRegions, setAllRegions] = useState([]);
     const [allFilteredCountries, setAllFilteredCountries] = useState([]);
-    // const [allFilteredFlights, setAllFilteredFlights] = useState([]);
     const [selectedLanguage, setSelectedLanguage] = useState("");
     const [selectedRegion, setSelectedRegion] = useState("");
     const [selectedCountryId, setSelectedCountryId] = useState("");
     const [selectedCountry, setSelectedCountry] = useState("");
-    const [departureAirport, setDepartureAirport] = useState("");
-    const [destinationAirport, setDestinationAirport] = useState("");
-    // const [selectedFlight, setSelectedFlight] = useState("");
+    const [selectedFlight, setSelectedFlight] = useState("");
     const [ukAirports, setUKAirports] = useState([])
 
     // const filterEntryArray = (array) => {
@@ -137,16 +134,11 @@ const PageContainer = () => {
 
     const getSelectedCountry = () => {
         setSelectedCountry(findCountry(selectedCountryId, allFilteredCountries))
-        // asdlfkjasdl;kfjas
     }
 
     const selectCountry = submitted => {
         setSelectedCountryId(submitted)
     }
-
-    // const selectDestinationAirport = submitted => {
-    //     setDestinationAirportId(submitted)
-    // }
 
     const luckyDip = () => {
         let randomValue = Math.floor(Math.random() * allFilteredCountries.length)
@@ -159,9 +151,26 @@ const PageContainer = () => {
         getSelectedCountry()
     })
 
+    const durationCalculation = (depTime, arrTime) => {
+        const depHours = 
+        depTime.getHours()
+        arrHours = arrTime.getHours()
+    }
+
     const searchFlights = (departureAirport, destinationAirport) => {
-        setDepartureAirport(departureAirport)
-        setDestinationAirport(destinationAirport)
+fetch ()// http://api.aviationstack.com/v1/airflightccess_key=${flight_key}&offdep_iata=${departureAirport}&arr_iata=${destinationAirport}&limit=1
+        .then(res => res.json())
+        .then(data => {
+            setSelectedFlight(
+                {
+                    name: selectedCountry.name,
+                    depAirport: data.data.departure.airport,
+                    arrAirport: data.data.arrival.airport,
+                    duration: durationCalculation(),
+                    price: priceCalculation(duration)
+                }
+            )
+        })
     }
 
     const selectLanguage = submitted => {
@@ -172,7 +181,6 @@ const PageContainer = () => {
         setSelectedCountryId("")
         setSelectedLanguage(submitted)
     }
-
 
     const selectRegion = submitted => {
         setSelectedRegion(submitted)
@@ -189,7 +197,7 @@ const PageContainer = () => {
                 <HeaderAndCountryFilter countries={allFilteredCountries} selectedCountry={selectedCountry} onCountrySelect={selectCountry} luckyDip={luckyDip} languages={allLanguages} regions={allRegions} onLanguageChange={selectLanguage} onRegionChange={selectRegion}/>
                 <Switch>
                     <Route exact path="/">
-                        <CountryContainer selectedCountry={selectedCountry} onSearchSubmit={searchFlights}/>
+                        <CountryContainer selectedCountry={selectedCountry} onSearchSubmit={searchFlights} ukAirports={ukAirports}/>
                         <FlightsContainer />
                     </Route>
                     <Route path="/wishlist" component={Wishlist}/>
@@ -198,8 +206,6 @@ const PageContainer = () => {
             </>
         </Router>
     )
-
-
 }
 
 export default PageContainer

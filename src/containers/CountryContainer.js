@@ -1,10 +1,10 @@
 import SelectedCountryDetail from '../components/SelectedCountryDetail'
 
-const CountryContainer = ({selectedCountry, onSearchSubmit}) => {
+const CountryContainer = ({selectedCountry, onSearchSubmit, ukAirports}) => {
     
     return (
         <div>
-            <SelectedCountryDetail selectedCountry={selectedCountry} onSearchSubmit={onSearchSubmit}/>
+            <SelectedCountryDetail selectedCountry={selectedCountry} onSearchSubmit={onSearchSubmit} ukAirports={ukAirports}/>
         </div>
     )
 }

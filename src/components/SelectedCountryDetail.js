@@ -2,7 +2,7 @@ import FlightsFilterAndButton from './FlightsFilterAndButton'
 import CountryMap from './CountryMap'
 import "./SelectedCountryDetails.css"
 
-const SelectedCountryDetail = ({selectedCountry, onSearchSubmit}) => {
+const SelectedCountryDetail = ({selectedCountry, onSearchSubmit, ukAirports}) => {
 
     const affordability = () => {
         if (selectedCountry.name === "United Kingdom of Great Britain and Northern Ireland") {
@@ -58,7 +58,7 @@ const SelectedCountryDetail = ({selectedCountry, onSearchSubmit}) => {
             <p className="listable">Currencies: {displayArray(selectedCountry.currencies).join(", ")}</p>
             <p className="listable">Languages: {displayArray(selectedCountry.languages).join(", ")}</p>
             <div id="buttons">
-                <FlightsFilterAndButton selectedCountry={selectedCountry} onSearchSubmit={onSearchSubmit} />
+                <FlightsFilterAndButton selectedCountry={selectedCountry} onSearchSubmit={onSearchSubmit} ukAirports={ukAirports}/>
             </div>
         </div>
         <div id="map">

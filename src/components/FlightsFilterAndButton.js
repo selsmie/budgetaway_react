@@ -1,18 +1,16 @@
 import {useState} from "react"
 
-const FlightsFilterAndButton = ({selectedCountry, onSearchSubmit}) => {
+const FlightsFilterAndButton = ({selectedCountry, onSearchSubmit, ukAirports}) => {
 
     const [departureAirport, setDepartureAirport] = useState("")
     const [destinationAirport, setDestinationAirport] = useState("")
-    
-    const airports = selectedCountry.airports.map((airport, index) => {
-        return <option value={airport.id} key={index}>{airport.name}</option>
+
+    const defaults = ukAirports.map((airport, index) => {
+        return <option value={airport.iata} key={index}>{airport.name}</option>
     })
 
-    const defaultAirports = ["Edinburgh", "Glasgow", "Heathrow", "Stansted", "Gatwick", "Luton"]
-
-    const defaults = defaultAirports.map((airport, index) => {
-        return <option value={airport} key={index}>{airport}</option>
+    const airports = selectedCountry.airports.map((airport, index) => {
+        return <option value={airport.iata} key={index}>{airport.name}</option>
     })
 
     const handleDepAirportChange = (evt) => {
