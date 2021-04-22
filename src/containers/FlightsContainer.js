@@ -1,3 +1,5 @@
+import "./FlightContainer.css"
+
 const FlightContainer = ({flight, onAddToWishlist}) => {
     const handleAddToWishlist = (evt) => {
         evt.preventDefault()
@@ -7,10 +9,10 @@ const FlightContainer = ({flight, onAddToWishlist}) => {
         <div className = "flight">
             <h2 id="flight-name">{flight.name}</h2>
             <div id="flight-details">
-                <h6>Departure Airport: {flight.depAirport}</h6>
-                <h6>Arrival Airport: {flight.arrAirport}</h6>
-                <h6>Duration: {flight.duration}</h6>
-                <h6>Price: {flight.price}</h6>
+                <h4 id="departure">Departure Airport: {flight.depAirport}</h4>
+                <h4 id="arrival">Arrival Airport: {flight.arrAirport}</h4>
+                <h4 id="duration">Duration: {flight.duration}</h4>
+                <h4 id="price">Price: {flight.price}</h4>
             </div>
             <button className="flight-button" onClick={handleAddToWishlist}>Add to Wishlist</button>
         </div> : null
