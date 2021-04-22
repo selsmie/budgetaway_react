@@ -157,7 +157,7 @@ const PageContainer = () => {
 
         let arrHoursSplit = arrTime.split("")
         let arrHours = parseInt(arrHoursSplit.slice(11, 13).join(""))
-        console.log(selectedCountry.timezone);
+        // console.log(selectedCountry.timezone)
         let adjustedArrHours = arrHours - selectedCountry.timezone
 
         if (adjustedArrHours - depHours > 0) {

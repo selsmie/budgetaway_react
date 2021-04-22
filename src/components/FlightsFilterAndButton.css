@@ -1,0 +1,22 @@
+.airport-selection > form > select {
+    width: 200px;
+    height: 25px;
+    border-radius: 12px;
+    padding-left: 5px;
+    margin: 5px 0px;
+}
+
+.airport-selection > form{
+    display: flex;
+    flex-direction: column;
+    
+}
+
+
+.airport-selection > form > input {
+    width: 200px;
+    height: 25px;
+    border-radius: 12px;
+    padding-left: 5px;
+    margin: 5px 0px;
+}
