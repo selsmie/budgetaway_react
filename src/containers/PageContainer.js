@@ -23,7 +23,7 @@ const PageContainer = () => {
     const [selectedRegion, setSelectedRegion] = useState("");
     const [selectedCountryId, setSelectedCountryId] = useState("");
     const [selectedCountry, setSelectedCountry] = useState("");
-    const [selectedFlight, setSelectedFlight] = useState([]);
+    const [selectedFlight, setSelectedFlight] = useState("");
     const [ukAirports, setUKAirports] = useState([])
     const [wishlist, setWishlist] = useState("")
 
@@ -86,15 +86,28 @@ const PageContainer = () => {
 
     
     // iterate through all countries and save each country to the db
-    // also populate allLanguages and allRegions
+    // useEffect(() => {
+    //     if (rawCountries.length > 0){
+    //         addCountries(rawCountries)
+    //     }
+    // }, [rawCountries])
+
+    // useEffect(() => {
+    //     airports.forEach((airport) => {
+    //         if (airport.country) {
+    //             const index = countries.findIndex((country) => country.name === airport.country)
+    //             if (index !== -1) {
+    //                 countries[index].airports.push(airport)
+    //             }
+    //         }
+    //     })
+    //     setRawCountries(countries)
+    // }, [])
+
     useEffect(() => {
-        // if (rawCountries.length > 0){
-            // addCountries(rawCountries)
-            
-            getAllLanguages()
-                .then(data => setAllLanguages(data))
-        // }
-    })
+        getAllLanguages()
+            .then(data => setAllLanguages(data))
+    }, [])
 
     //get filtered countries list depending on which filter is used
     useEffect(() => {
@@ -114,20 +127,6 @@ const PageContainer = () => {
                 .then(data => setAllFilteredCountries(data))
         }
     }, [selectedLanguage, selectedRegion, allCountries])
-
-
-    // useEffect(() => {
-    //     airports.forEach((airport) => {
-    //         if (airport.country) {
-    //             const index = countries.findIndex((country) => country.name === airport.country)
-    //             if (index !== -1) {
-    //                 countries[index].airports.push(airport)
-    //             }
-    //         }
-    //     })
-    //     setRawCountries(countries)
-    // }, [])
-
 
     const findCountry = (searchCountry, collection) => {
         return collection.find(({name}) => name === searchCountry)
@@ -210,10 +209,11 @@ const PageContainer = () => {
     useEffect(() => {
         getWishlist()
             .then(data => setWishlist(data))
-    }, [])
+    }, [wishlist, allFilteredCountries])
 
     const addToWishlist = () => {
         addToWishlistDB(selectedFlight)
+        setWishlist([...wishlist, selectedFlight])
     }
 
     return (
@@ -223,7 +223,7 @@ const PageContainer = () => {
                 <Switch>
                     <Route exact path="/">
                         <CountryContainer selectedCountry={selectedCountry} onSearchSubmit={searchFlights} ukAirports={ukAirports}/>
-                        <FlightContainer flight={selectedFlight} onAddToWishlist={addToWishlist}/>
+                        <FlightsContainer flight={selectedFlight} onAddToWishlist={addToWishlist}/>
                     </Route>
                     <Route path="/wishlist" > 
                         <Wishlist wishlist = {wishlist}/>

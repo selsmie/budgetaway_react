@@ -5,9 +5,6 @@ import logo from "../logo.png"
 
 const HeaderAndCountryFilter = ({countries, onCountrySelect, luckyDip, languages, onRegionChange, onLanguageChange, regions}) => {
 
-    const budgetClick = () => {
-    }
-
     const handleLuckyDip = (evt) => {
         luckyDip()
     }

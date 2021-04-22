@@ -8,9 +8,6 @@
     background-color: rgba(99, 164, 167, 0.8);
     color: cornsilk;
 }
-
-
-
 .item-container{
     display:grid;
     grid-template-columns: 1fr 1fr;
@@ -21,23 +18,22 @@
     border-radius: 12px;
     text-align: center;
     padding: 15px;
-    
 }
-
 .item-container > h3 {
-    margin: 5px;  
-    font-size:40px; 
+    margin: 5px;
+    font-size:40px;
+    grid-column: 1/span 2 ;
+    grid-row: 1;
 }
-
 .item-container > p {
     text-align: center;
     font-size: 20px;
-    
 }
-
 .wishlist-button{
     background-color: rgb(138, 0, 0);
     color: cornsilk;
     border: 2px outset rgb(103, 0, 0);
     border-radius:12px;
+    grid-column:1/span 2;
+    grid-row:4;
 }
