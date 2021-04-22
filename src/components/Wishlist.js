@@ -7,18 +7,16 @@ const handleRemoveFromWishlist = (evt) => {
     onRemoveFromWishlist(evt.target.value)
 }
    
-    const displayable = (wishlist) ? wishlist.map((item, index) => {
+    const displayable = (wishlist.length) ? wishlist.map((item, index) => {
         return  <div key={index} className="item-container">
                     <h3>{item.name}</h3>
-                    {/* <div className="detail-container"> */}
                         <p>Departure: {item.depAirport}</p>
                         <p>Arrival: {item.arrAirport}</p>
                         <p>Duration: {item.duration}</p>
                         <p>Price: £{item.price}</p>
-                    {/* </div> */}
                     <button className="wishlist-button" onClick={handleRemoveFromWishlist} value={item.id}>Remove from wishlist</button>
                 </div>
-    }): "You Have No Journeys Saved."
+    }): <p id="null-wishlist">"You Have No Journeys Saved."</p>
 
     return (
         <section className="wishlist"> 

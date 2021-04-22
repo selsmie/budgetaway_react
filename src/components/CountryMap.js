@@ -14,9 +14,8 @@ const CountryMap = ({selectedCoordinates}) => {
         return null
     }
     
-
     return(
-        <MapContainer center={selectedCoordinates} zoom={5} scrollWheelZoom={false}>
+        <MapContainer center={selectedCoordinates} zoom={4} scrollWheelZoom={false}>
             <MapWrapper selectedCoordinates={selectedCoordinates}/>
             <TileLayer
                 attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'

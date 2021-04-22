@@ -32,6 +32,7 @@ const HeaderAndCountryFilter = ({countries, onCountrySelect, luckyDip, languages
     return (
         <header>
             <div className="title-links">
+                <div></div>
                 <img src={logo} alt="logo"/>
                 <div className="navbar">
                     <NavBar/>
@@ -54,11 +55,9 @@ const HeaderAndCountryFilter = ({countries, onCountrySelect, luckyDip, languages
                     </div>
 
                     <button className="lucky-dip" onClick={handleLuckyDip}>
-                        <option countries={countries}>Lucky Dip</option>
+                        Lucky Dip
                     </button>
             </div>
-
-
         </header>
     )
 }

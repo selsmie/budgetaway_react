@@ -5,6 +5,7 @@ const FlightContainer = ({flight, onAddToWishlist}) => {
         evt.preventDefault()
         onAddToWishlist()
     }
+    
     const displayableDetails = (flight) ? 
         <div className = "flight">
             <h2 id="flight-name">{flight.name}</h2>

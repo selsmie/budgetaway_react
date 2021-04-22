@@ -6,7 +6,7 @@
     border-radius: 12px;
     background-color: rgba(99, 164, 167, 0.8);
     color: cornsilk;
-  
+
 }
 .item-container{
     display:grid;
@@ -19,7 +19,6 @@
     padding: 10px;
     margin:10px;
     justify-content: center;
-    /* height: 210px; */
 }
 .item-container > h3 {
     margin: 5px;
@@ -31,7 +30,6 @@
     text-align: center;
     font-size: 30px;
     margin:0;
-    /* height: 80 px; */
 }
 .wishlist-button{
     background-color: rgb(138, 0, 0);
@@ -49,4 +47,9 @@
 .wishlist-button:hover{
     cursor:pointer;
     box-shadow:0 0 2px 2px;
+}
+
+#null-wishlist {
+    display: flex;
+    justify-content: center;
 }

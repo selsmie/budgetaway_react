@@ -8,37 +8,37 @@ const SelectedCountryDetail = ({selectedCountry, onSearchSubmit, ukAirports}) =>
         if (selectedCountry.name === "United Kingdom of Great Britain and Northern Ireland") {
             return "£££££"
         } else if (selectedCountry.region.match("Eastern Europe")){
-            return "€€€"
+            return "£££"
         } else if (selectedCountry.region.match("Southern Europe")){
-            return "€€€€"
+            return "££££"
         } else if (selectedCountry.region.match("Europe")){
-            return "€€€€€"
+            return "£££££"
         } else if (selectedCountry.region.match("Eastern Asia")){
-            return "$$$$"
+            return "££££"
         } else if (selectedCountry.region.match("Southern Asia")){
-            return "$"
+            return "£"
         } else if (selectedCountry.region.match("Central Asia")){
-            return "$$$"
+            return "£££"
         } else if (selectedCountry.region.match("Western Asia")){
-            return "$$$$"    
+            return "££££"    
         } else if (selectedCountry.region.match("Northern America")){
-            return "$$$$$"
+            return "£££££"
         } else if (selectedCountry.region.match("South America")){
-            return "$$$"
+            return "£££"
         } else if (selectedCountry.region.match("Central America")){
-            return "$$$"
+            return "£££"
         } else if (selectedCountry.region.match("Africa")){
-            return "$$"
+            return "££"
         } else if (selectedCountry.region.match("Australia")){
-            return "$$$$$"
+            return "£££££"
         } else if (selectedCountry.region.match("Caribbean")){
-            return "$$$"
+            return "£££"
         } else if (selectedCountry.region.match("Melanesia")){
-            return "$$"
+            return "££"
         } else if (selectedCountry.region.match("Polynesia")){
-            return "$$"
+            return "££"
         }
-        return "?"
+        return "TBC"
     }
 
     const displayArray = array => {

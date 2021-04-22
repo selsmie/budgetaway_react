@@ -1,6 +1,6 @@
+import "./CountryList.css"
+
 const CountryList = ({countries, onCountrySelect}) => {
-
-
 
     const countryDisplay = countries.map((country, index) => {
         return <option value={country.name} key={index}>{country.name}</option>

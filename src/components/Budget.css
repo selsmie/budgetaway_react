@@ -1,10 +1,3 @@
-/* .budget {
-  border: 1px solid black;
-  margin: 20px 10%;
-  padding: 10px;
-  text-align: justify;
- } */
-
 .budget > h4 {
   margin: 5px;
  } 
@@ -42,12 +35,13 @@
 }
 
 #submit {
-  border: 2px solid rgb(248, 157, 0);
+  border: 2px solid cornsilk;
   background-color: rgb(241, 87, 4);
-  color:rgb(248, 157, 0);
+  color:cornsilk;
   text-align: justify;
   font-weight:bolder
  }
+
 
 
 

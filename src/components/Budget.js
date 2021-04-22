@@ -50,7 +50,7 @@ function BudgetForm({ onSubmit }) {
                 </div>
 
                 <div className="search-bar">
-                    <label id="outgoings">Outgoings p/m:</label>
+                    <label id="outgoings">Outgoing p/m:</label>
                     <input
                     onChange={handleChange}
                     min="0"

@@ -1,9 +1,9 @@
 .bm-burger-button {
     position: fixed;
-    width: 15px;
-    height: 15px;
+    width: 35px;
+    height: 25px;
     left: 36px;
-    top: 36px;
+    top: 85px;
 }
   
 .bm-burger-bars {
@@ -18,9 +18,9 @@
     height: 24px;
     width: 24px;
 }
-  
+
 .bm-cross {
-    background: #bdc3c7;
+    background: cornsilk;
 }
   
 .bm-menu-wrap {
@@ -30,12 +30,8 @@
 
 .bm-menu {
     background:rgb(241, 87, 4);
-    /* text-align: center;
-    align-content: center; */
+
     padding: 2.5em 1.5em 0;
     font-size: 15px;
-    color: rgb(248, 157, 0);
+    color: cornsilk;
 }
-  
-  
-  

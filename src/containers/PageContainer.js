@@ -10,7 +10,6 @@ import {flight_key} from "../config"
 import countries from "../data/countries"
 import airports from "../data/airportscode"
 
-
 const PageContainer = () => {
    
     // const [rawCountries, setRawCountries] = useState([]);
@@ -84,7 +83,6 @@ const PageContainer = () => {
         setAllRegions(Array.from(new Set(allFilteredCountries.map((country) => country.region))))
     }, [allFilteredCountries, selectedLanguage])
 
-    
     // iterate through all countries and save each country to the db
     // useEffect(() => {
     //     if (rawCountries.length > 0){
@@ -157,7 +155,6 @@ const PageContainer = () => {
 
         let arrHoursSplit = arrTime.split("")
         let arrHours = parseInt(arrHoursSplit.slice(11, 13).join(""))
-        // console.log(selectedCountry.timezone)
         let adjustedArrHours = arrHours - selectedCountry.timezone
 
         if (adjustedArrHours - depHours > 0) {
@@ -216,6 +213,7 @@ const PageContainer = () => {
     const addToWishlist = () => {
         addToWishlistDB(selectedFlight)
         setWishlist([...wishlist, selectedFlight])
+        setSelectedFlight("")
     }
 
     const removeFromWishlist = (id) => {

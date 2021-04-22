@@ -28,9 +28,6 @@ const FlightsFilterAndButton = ({selectedCountry, onSearchSubmit, ukAirports}) =
     
     const handleSearchSubmit = (evt) => {
         evt.preventDefault()
-        // console.log(departureAirport)
-        // console.log(destinationAirport)
-        // console.log(selectedCountry);
         onSearchSubmit(departureAirport, destinationAirport)
         setDepartureAirport("")
         setDestinationAirport("")

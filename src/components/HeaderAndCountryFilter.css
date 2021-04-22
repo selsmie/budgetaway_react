@@ -1,7 +1,8 @@
 .title {
     text-align: center;
     font-size: 40px;
-    margin: 5px;
+    margin: 10px;
+    color:cornsilk;
 }
 
 .title-links {
@@ -19,7 +20,6 @@
     justify-items: center;
     height: fit-content;
 }
-
 
 .navbar > NarBar {
     justify-self: right;
@@ -47,17 +47,13 @@
 .languages {
     display: inline-block;
     background-color: lavender;
-    border-radius: 5px;
+    border-radius: 12px;
     border: 4px double  rgb(241, 87, 4);
     color: black;
     text-align: center;
     font-size: 15px;
-    padding: 20px;
-    width: 200px;
-    -webkit-transition: all 0.5s;
-    -moz-transition: all 0.5s;
-    -o-transition: all 0.5s;
-    transition: all 0.5s;
+    padding: 0px 20px;
+    width: max-content;
     cursor: pointer;
     margin: 5px;
 }
@@ -65,53 +61,26 @@
 .regions {
     display: inline-block;
     background-color: lavender;
-    border-radius: 5px;
+    border-radius: 12px;
     border: 4px double  rgb(241, 87, 4);
     color: black;
     text-align: center;
     font-size: 15px;
-    padding: 20px;
-    width: 200px;
-    -webkit-transition: all 0.5s;
-    -moz-transition: all 0.5s;
-    -o-transition: all 0.5s;
-    transition: all 0.5s;
-    cursor: pointer;
-    margin: 5px;
-}
-
-.nations {
-    display: inline-block;
-    background-color: lavender;
-    border-radius: 5px;
-    border: 4px double  rgb(241, 87, 4);
-    color: black;
-    text-align: center;
-    font-size: 15px;
-    padding: 20px;
-    width: 200px;
-    -webkit-transition: all 0.5s;
-    -moz-transition: all 0.5s;
-    -o-transition: all 0.5s;
-    transition: all 0.5s;
+    padding: 0px 20px;
+    width: 250px;
     cursor: pointer;
     margin: 5px;
 }
 
 .lucky-dip {
     display: inline-block;
-    background-image: linear-gradient( rgb(241, 87, 4), yellow);
+    background-image: linear-gradient( rgb(241, 87, 4), rgb(255, 187, 0));
     border-radius: 50px;
     border: 4px double #cccccc;
     color: #eeeeee;
     text-align: center;
     font-size: 28px;
-    padding: 20px;
     width: 200px;
-    -webkit-transition: all 0.5s;
-    -moz-transition: all 0.5s;
-    -o-transition: all 0.5s;
-    transition: all 0.5s;
     cursor: pointer;
     margin: 5px;
 }
@@ -129,7 +98,6 @@
     width: 100%;
     height: 15px;
     border-radius: 5px;  
-    /* background: #d3d3d3; */
     background: rosybrown;
     outline: none;
     opacity: 0.7;
@@ -154,4 +122,3 @@
     background:  rgb(241, 87, 4);
     cursor: pointer;
   }
-

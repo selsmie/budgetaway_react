@@ -1,8 +1,13 @@
 .about {
     border: 1px solid black;
     margin: 20px 10%;
-    padding: 10px;
     text-align: justify;
+    border: 2px cornsilk solid;
+    border-radius: 12px;
+    background-color: rgba(99, 164, 167, 0.8);
+    color: cornsilk;
+    padding: 20px;
+    font-weight: bolder;
 }
 
 .about > h4 {
