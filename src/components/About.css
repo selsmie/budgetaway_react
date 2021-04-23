@@ -8,7 +8,7 @@
     color: cornsilk;
     padding: 20px;
     font-weight: normal;
-    height: 400px;
+    height: max-content;
     font-size: 27px;
 }
 
