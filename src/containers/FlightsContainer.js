@@ -12,8 +12,8 @@ const FlightContainer = ({flight, onAddToWishlist}) => {
             <div id="flight-details">
                 <h4 id="departure">Departure Airport: {flight.depAirport}</h4>
                 <h4 id="arrival">Arrival Airport: {flight.arrAirport}</h4>
-                <h4 id="duration">Duration: {flight.duration}</h4>
-                <h4 id="price">Price: {flight.price}</h4>
+                <h4 id="duration">Duration: {flight.duration} hours</h4>
+                <h4 id="price">Price: £{flight.price}</h4>
             </div>
             <button className="flight-button" onClick={handleAddToWishlist}>Add to Wishlist</button>
         </div> : null

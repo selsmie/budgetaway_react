@@ -12,7 +12,7 @@ const handleRemoveFromWishlist = (evt) => {
                     <h3>{item.name}</h3>
                         <p>Departure: {item.depAirport}</p>
                         <p>Arrival: {item.arrAirport}</p>
-                        <p>Duration: {item.duration}</p>
+                        <p>Duration: {item.duration} hours</p>
                         <p>Price: £{item.price}</p>
                     <button className="wishlist-button" onClick={handleRemoveFromWishlist} value={item.id}>Remove from wishlist</button>
                 </div>
