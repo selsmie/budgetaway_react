@@ -3,6 +3,8 @@
 Group project using React and Spring frameworks.
 Required Spring application located at: https://github.com/selsmie/budgetaway_spring
 
+Live application on Heroku: https://budgetaway-react.herokuapp.com
+
 Download node-modules using `npm install`.
 Start the application using `npm start`.
 
